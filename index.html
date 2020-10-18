@@ -9,8 +9,14 @@
     <link rel="icon" href="https://cdn.pointng.io/pointng_widget.svg">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link rel="stylesheet" href="./css/styles.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <script>window.sa_event=window.sa_event||function(){a=[].slice.call(arguments);sa_event.q?sa_event.q.push(a):sa_event.q=[a]};</script>
+    <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
   </head>
   <body>
+
+
+
     <!-- Modal start -->
     <div class="modal" id="modal">
       <div class="modal-background"></div>
@@ -70,6 +76,7 @@
                 <a class="button is-primary is-inverted" href="https://app.pointng.io/login">
                   <span class="icon">
                     <i class="fas fa-sign-in-alt"></i>
+                    
                   </span>
                   <span>Log in</span>
                 </a>
@@ -80,7 +87,11 @@
         </div>
       </nav>      
     <!-- Navbar end -->
-
+    <!-- Page loader start -->
+    <div id="loader" class="loader-wrapper">
+      <div class="loader is-loading"></div>
+  </div>
+    <!-- Page loader end -->
     <section class="hero is-light is-medium svg-background">
         <div class="hero-body">
           <div class="container main-box">
@@ -319,27 +330,50 @@
     <script>
         const pointng = new PointNG({ 
             level: 'city', 
-            api_key: "TEST_38c2e20c-098e-4110-846a-9af2aa61c149",
+            api_key: "0be63d1d-b9c9-4f3b-a2d7-02625af0b983",
             currentWidgetPosition: 'right', //options are 'left' and 'right
             privacyPolicyLink: 'https://app.pointng.io/privacy'  
         }); 
         pointng.openWidget(pointng.start()).then(value => {
+          
           document.getElementById("locateMe").addEventListener("click", listenForPrediction)
         })
 
         function listenForPrediction() {
+          
           var updateContent = function() {
+            $("#loader").addClass('is-active-loader');
             if (pointng.predictionData.ready == true) {
+              $("#loader").removeClass('is-active-loader');
               clearInterval(checkForUserLocation);
+              $("#modal").addClass('is-active');
+              if (pointng.predictionData.continent) $("#continent").html('Continent: ' + pointng.predictionData.continent)
+              if (pointng.predictionData.sub_continent) $("#sub_continent").html('Sub continent: ' + pointng.predictionData.sub_continent)
+              if (pointng.predictionData.country) $("#country").html('Country: ' + pointng.predictionData.country)
+              if (pointng.predictionData.iso2) $("#iso2").html('ISO2: ' + pointng.predictionData.iso2)
+              if (pointng.predictionData.capital) $("#capital").html('Capital: ' + pointng.predictionData.capital)
+              if (pointng.predictionData.currency) $("#currency").html('Currency: ' + pointng.predictionData.currency)
+              if (pointng.predictionData.phone_code) $("#phone_code").html('Phone prefix: ' + pointng.predictionData.phone_code)
+              if (pointng.predictionData.state) $("#state").html('State: ' + pointng.predictionData.state)
+              if (pointng.predictionData.city) $("#city").html('City: ' + pointng.predictionData.city)
               console.log(pointng.predictionData)
+              $( "#close" ).click(function() {
+                  $("#modal").removeClass('is-active');
+              });
             }
           }
+          var checkForUserLocation = setInterval(updateContent, 100)
         }
 
     </script>
     <script>
       var tryThis = function() {
         $("#tryThis").addClass('is-loading');
+        pointngLocate()
+      }
+    </script>
+    <script>
+      var pointngLocate = function() {
         pointng.getLocation().then(function(prediction) {
                       console.log("Result of the function: " + prediction.country)
                       console.log(pointng.predictionData)
