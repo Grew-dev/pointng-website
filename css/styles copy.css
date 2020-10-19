@@ -84,3 +84,29 @@ body {
         font-weight: 600;
         text-decoration: none;
 }
+
+.loader-wrapper {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  background: #fff;
+  margin-bottom: 25px;
+  margin-right: 25px;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity .3s;
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+}
+
+.loader-wrapper .loader {
+  height: 15px;
+  width: 15px;
+} 
+
+.is-active-loader {
+  z-index: 1;
+  opacity: 1;
+}

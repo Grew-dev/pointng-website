@@ -267,7 +267,7 @@
                                 <p>100% independent and self-funded.</p>
                 
                                 <p>
-                                European based
+                                Hosted in the EU
                                 <span>
                                     <img style="height: 20px;" src="./img/800px-Flag_of_Europe.svg.png"> 
                                 </span>
@@ -339,9 +339,9 @@
         function listenForPrediction() {
           
           var updateContent = function() {
-            // $("#loader").addClass('is-active-loader');
+            $("#loader").addClass('is-active-loader');
             if (pointng.predictionData.ready == true) {
-              // $("#loader").removeClass('is-active-loader');
+              $("#loader").removeClass('is-active-loader');
               clearInterval(checkForUserLocation);
               $("#modal").addClass('is-active');
               if (pointng.predictionData.continent) $("#continent").html('Continent: ' + pointng.predictionData.continent)
