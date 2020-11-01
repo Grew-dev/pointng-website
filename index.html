@@ -89,73 +89,29 @@
     <!-- Navbar end -->
   
     <!-- Page loader end -->
-    <section class="hero is-light is-medium svg-background">
+    <section class="hero is-medium" style="background-color: #fff;">
         <div class="hero-body">
           <div class="container main-box">
             <h1 class="title main-title">
               Privacy Protected Location Detection in JavaScript
             </h1>
             <h2 class="subtitle main-subtitle">
-            Get user location without the privacy risks of sending your users' sensitive coordinate-data away from the browser.
+              pointNG is a developer tool that uses neural networks to identify user's location without sending user's sensitive coordinate-data away from the browser.
             </h2>
             <h2 class="subtitle main-subtitle"> 
-            Instead, pointNG uses machine learning directly on the client-interface to identify the location based on GPS coordinates.
+               
+              <a href="https://globalreactioncompany.gitbook.io/pointng/basics" target="_blank">
+                <strong>Read more how to get user location without privacy risks &rarr;</strong> 
+                </a>
             </h2>
-            <div class="column" style="text-align: center;">
-                    <button id="tryThis" class="button is-primary is-large" onclick="tryThis()">
-                        <span>
-                            <small>Locate me with</small>
-                          <strong>pointNG</strong>
-                        </span>
-                    </button>
-                </div>
-            <p class="subtitle main-subtitle">
-            For a quick start paste this code snippet to your webiste's body:
-            </p>
-
-          <pre style="text-align: left; max-width: 600px; margin: 0 auto">&lt;script src="https://cdn.pointng.io/pointng.js?v=beta">&lt;/script&gt;
-&lt;script&gt;
-  const pointng = new PointNG({
-    api_key: "beta",
-    level: 'city'
-  });
-  pointng.getLocation().then(function(prediction) {
-    console.log(pointng.prediction)
-  })
-&lt;/script&gt;</pre>
-
-          <p class="subtitle main-subtitle">
-              Connect with us
-            </p>
-            <nav class="intro-buttons">
-              <a class="button is-primary is-large" style="margin-bottom: 10px;" href="https://discord.gg/tjyaZDY" target="_blank">
-                <span>
-                  <strong>Join our Discord server</strong>
-                  <svg class="svg-inline--fa fa-discord fa-w-14" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="discord" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M297.216 243.2c0 15.616-11.52 28.416-26.112 28.416-14.336 0-26.112-12.8-26.112-28.416s11.52-28.416 26.112-28.416c14.592 0 26.112 12.8 26.112 28.416zm-119.552-28.416c-14.592 0-26.112 12.8-26.112 28.416s11.776 28.416 26.112 28.416c14.592 0 26.112-12.8 26.112-28.416.256-15.616-11.52-28.416-26.112-28.416zM448 52.736V512c-64.494-56.994-43.868-38.128-118.784-107.776l13.568 47.36H52.48C23.552 451.584 0 428.032 0 398.848V52.736C0 23.552 23.552 0 52.48 0h343.04C424.448 0 448 23.552 448 52.736zm-72.96 242.688c0-82.432-36.864-149.248-36.864-149.248-36.864-27.648-71.936-26.88-71.936-26.88l-3.584 4.096c43.52 13.312 63.744 32.512 63.744 32.512-60.811-33.329-132.244-33.335-191.232-7.424-9.472 4.352-15.104 7.424-15.104 7.424s21.248-20.224 67.328-33.536l-2.56-3.072s-35.072-.768-71.936 26.88c0 0-36.864 66.816-36.864 149.248 0 0 21.504 37.12 78.08 38.912 0 0 9.472-11.52 17.152-21.248-32.512-9.728-44.8-30.208-44.8-30.208 3.766 2.636 9.976 6.053 10.496 6.4 43.21 24.198 104.588 32.126 159.744 8.96 8.96-3.328 18.944-8.192 29.44-15.104 0 0-12.8 20.992-46.336 30.464 7.68 9.728 16.896 20.736 16.896 20.736 56.576-1.792 78.336-38.912 78.336-38.912z"></path></svg>
-                </span>
-              </a>
-            </nav>
-
-            <!-- <nav class="intro-buttons">
-                <a class="button is-primary is-large" style="margin-bottom: 10px;" href="https://app.gitbook.com/@globalreactioncompany/s/pointng/">
-                  <span>
-                    <strong>Get started</strong>
-                  </span>
-                </a>
-                <a class="button is-light is-large" target="_blank" href="https://app.gitbook.com/@globalreactioncompany/s/pointng/">
-                  <span>
-                    <strong>Documentation</strong>
-                  </span>
-                </a>
-              </nav>
-              <small><em>pointNG is currently in BETA.</em></small> -->
+          
           </div>
         </div>
       </section> 
 
     <section class="section" id="why">
         <div class="container">
-            <h2 class="title pointng-title">Why use pointNG in location personalization?</h2>
+            <h2 class="title pointng-title">Why use pointNG</h2>
             <div class="pointng-container">
                 <div class="block">
                     <h4 class="subtitle is-4">Hyper Secure: coordinate data never leaves the client</h4>
@@ -213,21 +169,68 @@
         </div>
     </section> -->
 
+    <section class="hero is-medium" style="background-color: #fff;">
+        <div class="container" style="margin-bottom: 3rem;">
+          <div class="column">
+            <h2 class="title pointng-title">Support us by testing and giving feedback</h2>
+            <div class="block">
+              <h4 class="subtitle is-4">Test here</h4>
+              <p style="margin-bottom: 2rem;"> Click below and accept the location permission to try pointNG in your current position.</p> 
+              <button id="tryThis" class="button is-primary is-large" style="margin-bottom: 1rem;" onclick="tryThis()" >
+                <span>
+                    <small>Locate me with</small>
+                  <strong>pointNG</strong>
+                </span>
+            </button>
+          </div>
+           <hr>
+
+          <div class="block">
+            <h4 class="subtitle is-4">Test on your local site</h4>
+            <p style="margin-bottom: 2rem;">For a quick test paste this code snippet to your webiste's body (use only in development environment):</p> 
+            <pre style="text-align: left; max-width: 600px; margin: 0 auto; margin-bottom: 2.5rem;">&lt;script src="https://cdn.pointng.io/pointng.js?v=beta">&lt;/script&gt;
+              &lt;script&gt;
+              const pointng = new PointNG({
+                api_key: "beta",
+                level: 'city'
+              });
+              pointng.getLocation().then(function(prediction) {
+                console.log(pointng.prediction)
+              })
+              &lt;/script&gt;</pre>
+              
+        </div>
+        <hr>
+        <div class="block">
+          <h4 class="subtitle is-4">Connect with us</h4>
+          <p style="margin-bottom: 2rem;">Join our Discord Server to chat with the pointNG developers, report bugs, give feedback and throw ideas.</p> 
+          <a class="button is-primary is-large" style="margin-bottom: 10px;" href="https://discord.gg/tjyaZDY" target="_blank">
+            <span>
+              <strong>Discord</strong>
+              <svg class="svg-inline--fa fa-discord fa-w-14" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="discord" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M297.216 243.2c0 15.616-11.52 28.416-26.112 28.416-14.336 0-26.112-12.8-26.112-28.416s11.52-28.416 26.112-28.416c14.592 0 26.112 12.8 26.112 28.416zm-119.552-28.416c-14.592 0-26.112 12.8-26.112 28.416s11.776 28.416 26.112 28.416c14.592 0 26.112-12.8 26.112-28.416.256-15.616-11.52-28.416-26.112-28.416zM448 52.736V512c-64.494-56.994-43.868-38.128-118.784-107.776l13.568 47.36H52.48C23.552 451.584 0 428.032 0 398.848V52.736C0 23.552 23.552 0 52.48 0h343.04C424.448 0 448 23.552 448 52.736zm-72.96 242.688c0-82.432-36.864-149.248-36.864-149.248-36.864-27.648-71.936-26.88-71.936-26.88l-3.584 4.096c43.52 13.312 63.744 32.512 63.744 32.512-60.811-33.329-132.244-33.335-191.232-7.424-9.472 4.352-15.104 7.424-15.104 7.424s21.248-20.224 67.328-33.536l-2.56-3.072s-35.072-.768-71.936 26.88c0 0-36.864 66.816-36.864 149.248 0 0 21.504 37.12 78.08 38.912 0 0 9.472-11.52 17.152-21.248-32.512-9.728-44.8-30.208-44.8-30.208 3.766 2.636 9.976 6.053 10.496 6.4 43.21 24.198 104.588 32.126 159.744 8.96 8.96-3.328 18.944-8.192 29.44-15.104 0 0-12.8 20.992-46.336 30.464 7.68 9.728 16.896 20.736 16.896 20.736 56.576-1.792 78.336-38.912 78.336-38.912z"></path></svg>
+            </span>
+          </a>
+      </div>
+            
+        </div>
+        </div>
+    </section> 
+
     <section class="bd-easy section is-medium">
       <div class="container">
           <div class="columns is-vcentered">
               <div class="column">
                   <header class="bd-index-header bd-is-left">
                   <h3 class="title is-3">
-                      Just plug it in!
+                      Install pointNg
                   </h3>
                   <h4 class="subtitle is-4">
-                      Add pointNG in just a few lines of code.
+                      Sign up to get your free API key, and add pointNG in just a few lines of code.
                   </h4>
                   <nav class="intro-buttons">
                     <a class="button is-primary is-large" style="margin-bottom: 10px;" href="https://app.gitbook.com/@globalreactioncompany/s/pointng/">
                       <span>
-                        <strong>Get started</strong>
+                        <strong>Get started for free</strong>
                       </span>
                     </a>
                     <a class="button is-light is-large" target="_blank" href="https://app.gitbook.com/@globalreactioncompany/s/pointng/">

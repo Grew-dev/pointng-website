@@ -35,6 +35,7 @@ body {
     margin: 0 auto;
     padding: 3rem 3rem;
     margin-bottom: 3rem;
+    text-align: center;
   }
   
   
@@ -43,7 +44,9 @@ body {
     font-size: 3rem;
     line-height: 1.125;
   }
-  
+.hero .title {
+    color: rgb(96 70 131 / 70%);
+}
   .main-title {
     font-weight: 800;
     letter-spacing: -2px;
