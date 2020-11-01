@@ -89,7 +89,7 @@
     <!-- Navbar end -->
   
     <!-- Page loader end -->
-    <section class="hero is-medium" style="background-color: #fff;">
+    <section class="hero is-medium svg-background" style="background-color: #fff;">
         <div class="hero-body">
           <div class="container main-box">
             <h1 class="title main-title">
@@ -144,38 +144,14 @@
         </div>
     </section>
 
-    <!-- <section class="bd-easy section is-medium">
-        <div class="pointng-container">
-            <div class="columns is-vcentered">
-                <div class="column">
-                    <header class="bd-index-header bd-is-left">
-                    <h3 class="title is-3">
-                        Try pointNG yourself
-                    </h3>
-                    <h4 class="subtitle is-4">
-                      Instead of sending data away from the browser which creates privacy-related risks, pointNG uses machine learning directly on the client-interface to identify the location based on GPS coordinates.
-                    </h4>
-                    </header>
-                </div>
-                <div class="column" style="text-align: center;">
-                    <button id="tryThis" class="button is-primary is-large" onclick="tryThis()">
-                        <span>
-                            <small>Locate me with</small>
-                          <strong>pointNG</strong>
-                        </span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section> -->
+    <section class="section" style="background-color: #fff;">
 
-    <section class="hero is-medium" style="background-color: #fff;">
-        <div class="container" style="margin-bottom: 3rem;">
+        <div class="container" style="margin-bottom: 3rem; max-width: 800px;">
+          <h2 class="title pointng-title">Support us by testing and giving feedback</h2>
           <div class="column">
-            <h2 class="title pointng-title">Support us by testing and giving feedback</h2>
             <div class="block">
               <h4 class="subtitle is-4">Test here</h4>
-              <p style="margin-bottom: 2rem;"> Click below and accept the location permission to try pointNG in your current position.</p> 
+              <p style="margin-bottom: 2rem;">To try pointNG here, click below and accept the Geolocation API location permission.</p> 
               <button id="tryThis" class="button is-primary is-large" style="margin-bottom: 1rem;" onclick="tryThis()" >
                 <span>
                     <small>Locate me with</small>
@@ -188,16 +164,16 @@
           <div class="block">
             <h4 class="subtitle is-4">Test on your local site</h4>
             <p style="margin-bottom: 2rem;">For a quick test paste this code snippet to your webiste's body (use only in development environment):</p> 
-            <pre style="text-align: left; max-width: 600px; margin: 0 auto; margin-bottom: 2.5rem;">&lt;script src="https://cdn.pointng.io/pointng.js?v=beta">&lt;/script&gt;
-              &lt;script&gt;
-              const pointng = new PointNG({
-                api_key: "beta",
-                level: 'city'
-              });
-              pointng.getLocation().then(function(prediction) {
-                console.log(pointng.prediction)
-              })
-              &lt;/script&gt;</pre>
+            <pre style="text-align: left; max-width: 600px; margin-bottom: 2.5rem;">&lt;script src="https://cdn.pointng.io/pointng.js?v=beta">&lt;/script&gt;
+&lt;script&gt;
+  const pointng = new PointNG({
+    api_key: "beta",
+    level: 'city'
+  });
+  pointng.getLocation().then(function(prediction) {
+    console.log(pointng.prediction)
+  })
+&lt;/script&gt;</pre>
               
         </div>
         <hr>
@@ -222,7 +198,7 @@
               <div class="column">
                   <header class="bd-index-header bd-is-left">
                   <h3 class="title is-3">
-                      Install pointNg
+                      Install pointNG
                   </h3>
                   <h4 class="subtitle is-4">
                       Sign up to get your free API key, and add pointNG in just a few lines of code.
