@@ -363,11 +363,10 @@
     <script src="https://cdn.pointng.io/pointng.js?v=beta"></script> 
     <script>
         const pointng = new PointNG({ 
-            level: 'city', 
-            // api_key: "0be63d1d-b9c9-4f3b-a2d7-02625af0b983",
             api_key: "beta",
-            currentWidgetPosition: 'right', //options are 'left' and 'right
-            privacyPolicyLink: 'https://app.pointng.io/privacy'  
+            level: 'city',
+            privacyPolicyLink: "https://beta.pointng.io/privacy",
+            widgetPosition: 'right'
         }); 
         pointng.openWidget(pointng.start()).then(value => {
           
