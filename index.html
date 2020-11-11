@@ -104,7 +104,7 @@
             <h2 class="subtitle main-subtitle">
               Get user location in your frontend code without privacy risks.
             </h2>
-            <a class="button is-primary is-large" style="margin-bottom: 10px;" href="https://app.gitbook.com/@globalreactioncompany/s/pointng/">
+            <a id="get-started" class="button is-primary is-large" style="margin-bottom: 10px;" href="https://app.gitbook.com/@globalreactioncompany/s/pointng/">
               <span>
                 <strong>Get started</strong>
               </span>
@@ -219,12 +219,12 @@
                       Sign up to get your free API key, and add pointNG in just a few lines of code.
                   </h4>
                   <nav class="intro-buttons">
-                    <a class="button is-primary is-large" style="margin-bottom: 10px;" target="_blank" href="https://app.pointng.io/register">
+                    <a id="get-started-for-free" class="button is-primary is-large" style="margin-bottom: 10px;" target="_blank" href="https://app.pointng.io/register">
                       <span>
                         <strong>Get started for free</strong>
                       </span>
                     </a>
-                    <a class="button is-light is-large" target="_blank" href="https://app.gitbook.com/@globalreactioncompany/s/pointng/">
+                    <a id="documentation" class="button is-light is-large" target="_blank" href="https://app.gitbook.com/@globalreactioncompany/s/pointng/">
                       <span>
                         <strong>Documentation</strong>
                       </span>
@@ -481,6 +481,19 @@
     <script src="https://cdn.consolechat.io/console-chat-min.js"></script>
     <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
     <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt=""/></noscript>
+
+  <!-- Mixpanel events -->
+  <script>
+    document.getElementById("get-started").addEventListener("click", function() {
+      mixpanel.track("Get started main module button click");
+    });
+    document.getElementById("get-started-for-free").addEventListener("click", function() {
+      mixpanel.track("Get started for free button click");
+    });
+    document.getElementById("documentation").addEventListener("click", function() {
+      mixpanel.track("Documentation button click");
+    });
+  </script> 
 
   </body>
 </html>
