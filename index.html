@@ -663,7 +663,7 @@
       }
             
     var fired = false;
-    var pixtuTestGroup =  getCookie('pixtu')
+    var pixtuTestGroup =  getCookie('pointng')
     if (!pixtuTestGroup) {
       createTestGroup()
       firePopup()
@@ -682,13 +682,13 @@
         var checkNum = Math.floor(Math.random() * 3)
         if (checkNum == 0) {
             pixtuTestGroup = 'A'     
-            document.cookie = "pixtu=A; expires=" + utcTime + ";"
+            document.cookie = "pointng=A; expires=" + utcTime + ";"
         }  else if (checkNum == 1) {
             pixtuTestGroup  = 'B'
-            document.cookie = "pixtu=B; expires=" + utcTime + ";"
+            document.cookie = "pointng=B; expires=" + utcTime + ";"
         } else {
             pixtuTestGroup  = 'C' 
-            document.cookie = "pixtu=C; expires=" + utcTime + ";"     
+            document.cookie = "pointng=C; expires=" + utcTime + ";"     
         }      
 
     }   
