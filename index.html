@@ -718,7 +718,7 @@
                 if (!fired) {
                   console.log("Fire Pixtu popup")
                   mixpanel.track("Pixtu popup showed", {
-                    "test_group": pixtuTestGroup
+                    "test_group": pixtuTestGroup(15)
                   })
                   fired = true;
                               
