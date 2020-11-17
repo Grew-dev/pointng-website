@@ -187,7 +187,7 @@
         <h2 class="pixtu-modal-title"><span id="pixtu-title"></span></h2>
         <p><span id="pixtu-description"></span></p>
         <p><span id="pixtu-html"></span></p>
-        <!-- <p><a id="pixtu-href" href="" target="_blank"><span id="pixtu-link"></span> &raquo;</a></p> -->
+        <p><a id="pixtu-href" href="" target="_blank"><span id="pixtu-link"></span> &raquo;</a></p>
       </div>
     </div>
    <!-- Pixtu Modal End --> 
@@ -517,13 +517,13 @@
                             </div>
                             <div class="column">
                               <div class="field">
-                                <form id="submit-email" name="form" novalidate="" action="https://dev.us7.list-manage.com/subscribe/post?u=71500ff84b0a3743f7dd57cbd&amp;id=df43edeefa" method="POST" onsubmit="return confSubscription();">
+                                <form name="form" novalidate="" action="https://dev.us7.list-manage.com/subscribe/post?u=71500ff84b0a3743f7dd57cbd&amp;id=df43edeefa" method="POST">
                                   <p>Please leave your email to get <b>pointNG</b> related news.</p>
                                   <label class="label" style="opacity: 0.8;">Email</label>
                                   <div class="control" style="margin-bottom: 20px">
                                         <input type="email" name="EMAIL" class="input" pattern="/^[a-zA-Z0-9+-_]+(\.[_a-zA-Z0-9+]+)*@[a-zA-Z0-9+-_]+(\.[a-zA-Z0-9+-_]+)*(\.[a-zA-Z]+)$/" placeholder="your@email.com" aria-required="true" required="required">
                                   </div>
-                                        <button type="submit" class="button is-primary"><span>SUBMIT</span></button>
+                                        <button id="submit-email" type="submit" class="button is-primary"><span>SUBMIT</span></button>
                                 </form>
                               </div>
                             </div>
@@ -570,7 +570,7 @@
         </section>
     </footer>
     <script>
-    function PixtuPrediction(api_key) {
+       function PixtuPrediction(api_key) {
         this.api_key = api_key;
     }
     
@@ -650,49 +650,30 @@
     };
     
     })();
+      var fired = false;
 
-    function closePixtu() {
-      document.getElementById("pixtu-modal").style.display = "none";               
-    }
+                   function closePixtu() {
+                      document.getElementById("pixtu-modal").style.display = "none";               
+                   }
 
-    // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function(event) {
-        if (event.target == document.getElementById("pixtu-modal")) {
-            document.getElementById("pixtu-modal").style.display = "none";
-        }
-      }
-            
-    var fired = false;
-    var pixtuTestGroup =  getCookie('pixtu')
-    if (!pixtuTestGroup) {
-      createTestGroup()
-      firePopup()
-    }
-    console.log(pixtuTestGroup)
-    mixpanel.track("pointNG Main Page View", {
-      "test_group": pixtuTestGroup
-    })
-    function createTestGroup() {
-        
-        var timeToAdd = 1000 * 60 * 60 * 24 * 7 * 4 * 6;
-        var date = new Date();
-        var expiryTime = parseInt(date.getTime()) + timeToAdd;
-        date.setTime(expiryTime);
-        var utcTime = date.toUTCString();
-        var checkNum = Math.floor(Math.random() * 3)
-        if (checkNum == 0) {
-            pixtuTestGroup = 'A'     
-            document.cookie = "pixtu=A; expires=" + utcTime + ";"
-        }  else if (checkNum == 1) {
-            pixtuTestGroup  = 'B'
-            document.cookie = "pixtu=B; expires=" + utcTime + ";"
-        } else {
-            pixtuTestGroup  = 'C' 
-            document.cookie = "pixtu=C; expires=" + utcTime + ";"     
-        }      
-
-    }   
-    
+                   // When the user clicks anywhere outside of the modal, close it
+                   window.onclick = function(event) {
+                     if (event.target == document.getElementById("pixtu-modal")) {
+                      document.getElementById("pixtu-modal").style.display = "none";
+                     }
+                   }
+          
+                   var showPopup = function() {
+               
+                     if (!fired) {
+               
+                       fired = true;
+                    
+                       document.getElementById("pixtu-modal").style.display = "block";
+                     }
+             
+                   }
+                   firePopup()
     var execPopup = function(time) {
       setTimeout(function() { showPopup(); }, time*1000);
     }
@@ -713,98 +694,201 @@
       return null;
     }
 
-    var showPopup = function() {
-                
-                if (!fired) {
-                  console.log("Fire Pixtu popup")
-                  mixpanel.track("Pixtu popup showed", {
-                    "test_group": pixtuTestGroup
-                  })
-                  fired = true;
-                              
-                  document.getElementById("pixtu-modal").style.display = "block";
-                }
-                      
+    async function getTestGroup() {
+      var existingCookie = await getCookie('pixtu_test_group')
+      if (!existingCookie) {
+
+        var testGroup
+        var checkNum = Math.floor(Math.random() * 3)
+        if (checkNum == 0) {
+            testGroup = 'A'
+            var timeToAdd = 1000 * 60 * 60 * 24 * 7 * 4 * 6;
+            var date = new Date();
+            var expiryTime = parseInt(date.getTime()) + timeToAdd;
+            date.setTime(expiryTime);
+            var utcTime = date.toUTCString();
+            document.cookie = "pixtu_test_group=A; expires=" + utcTime + ";"
+            mixpanel.track("pointNG Main Page View", {
+                  "test_group": 'A'
+              })
+        }  else if (checkNum == 1) {
+            testGroup = 'B'
+            var timeToAdd = 1000 * 60 * 60 * 24 * 7 * 4 * 6;
+            var date = new Date();
+            var expiryTime = parseInt(date.getTime()) + timeToAdd;
+            date.setTime(expiryTime);
+            var utcTime = date.toUTCString();
+            document.cookie = "pixtu_test_group=B; expires=" + utcTime + ";"
+            mixpanel.track("pointNG Main Page View", {
+                  "test_group": 'B'
+              })
+        } else {
+            testGroup = 'C'
+            var timeToAdd = 1000 * 60 * 60 * 24 * 7 * 4 * 6;
+            var date = new Date();
+            var expiryTime = parseInt(date.getTime()) + timeToAdd;
+            date.setTime(expiryTime);
+            var utcTime = date.toUTCString();
+            document.cookie = "pixtu_test_group=C; expires=" + utcTime + ";"
+            mixpanel.track("pointNG Main Page View", {
+                  "test_group": 'C'
+              })
+
+        } 
+        return testGroup
+
+      } else {
+        mixpanel.track("pointNG Main Page View", {
+                  "test_group": existingCookie
+              })
+        return null
+      }
+      
     }
              
     async function firePopup() {
-      console.log("Analyze Pixtu popup")
-              if (pixtuTestGroup == 'A') {
+            console.log("fire popup")
+               var measurementGroup = await getTestGroup()
+               console.log(measurementGroup)
+
+              if (measurementGroup == 'A') {
                  var pixtu_prediction = new PixtuPrediction('fb8cc2cd-187d-4835-a397-3cb83798d2pp')
          
                   pixtu_prediction.getPrediction().then().then(value => {    
                     console.log("Pixtu prediction ready:")
                      console.log(value)     
-
-                        document.getElementById("pixtu-title").innerHTML = "Stay in the loop:";
-                        document.getElementById("pixtu-description").innerHTML = "Subscribe to our newsletter and be the first one to hear about pointNG updates and news."
+                     if (value.leaves > value.converts && value.leaves > value.clicks && value.timeInSeconds < 16) {
+                        document.getElementById("pixtu-title").innerHTML = "Pixtu.io prediction:";
+                        document.getElementById("pixtu-description").innerHTML = "You will bounce after " + value.timeInSeconds.toFixed(0) + " from entering this page. This makes us sad.<br>Please at least leave your email address so we can get back to you with pointNG related news."
                         document.getElementById("pixtu-html").innerHTML = `
                 <div class="field">
-                  <form id="submit-email-2" name="form" novalidate="" action="https://dev.us7.list-manage.com/subscribe/post?u=71500ff84b0a3743f7dd57cbd&amp;id=df43edeefa" method="POST" onsubmit="return confSubmit();">
+                  <form name="form" novalidate="" action="https://dev.us7.list-manage.com/subscribe/post?u=71500ff84b0a3743f7dd57cbd&amp;id=df43edeefa" method="POST">
                     <label class="label" style="color: #fff; opacity: 0.8;">Email</label>
                     <div class="control" style="margin-bottom: 20px">
                           <input type="email" name="EMAIL" class="input" pattern="/^[a-zA-Z0-9+-_]+(\.[_a-zA-Z0-9+]+)*@[a-zA-Z0-9+-_]+(\.[a-zA-Z0-9+-_]+)*(\.[a-zA-Z]+)$/" placeholder="your@email.com" aria-required="true" required="required">
                     </div>
-                          <button type="submit" class="button is-primary"><span>SUBMIT</span></button>
+                          <button id="submit-email-2" type="submit" class="button is-primary"><span>SUBMIT</span></button>
   
                   </form>
                 </div>`
-                    execPopup(1)
+                        document.getElementById("pixtu-link").innerHTML = "Check out Pixtu.io";
+                        document.getElementById("pixtu-href").href = "https://www.pixtu.io";
+                        // execPopup(value.timeInSeconds)
+                        console.log("show popu")
+                        execPopup(1)
+                      } else if (value.leaves > value.converts && value.leaves > value.clicks) {
+                        document.getElementById("pixtu-title").innerHTML = "Pixtu.io prediction:";
+                        document.getElementById("pixtu-description").innerHTML = "You will spend " + value.timeInSeconds.toFixed(0) + " seconds on this page, and you are not likely to convert. This makes us sad.<br>Please at least leave your email address so we can get back to you with pointNG related news."
+                        document.getElementById("pixtu-html").innerHTML = `
+                <div class="field">
+                  <form name="form" novalidate="" action="https://dev.us7.list-manage.com/subscribe/post?u=71500ff84b0a3743f7dd57cbd&amp;id=df43edeefa" method="POST">
+                    <label class="label" style="color: #fff; opacity: 0.8;">Email</label>
+                    <div class="control" style="margin-bottom: 20px">
+                          <input type="email" name="EMAIL" class="input" pattern="/^[a-zA-Z0-9+-_]+(\.[_a-zA-Z0-9+]+)*@[a-zA-Z0-9+-_]+(\.[a-zA-Z0-9+-_]+)*(\.[a-zA-Z]+)$/" placeholder="your@email.com" aria-required="true" required="required">
+                    </div>
+                          <button id="submit-email-3" type="submit" class="button is-primary"><span>SUBMIT</span></button>
+  
+                  </form>
+                </div>`
+                        document.getElementById("pixtu-link").innerHTML = "Check out Pixtu.io";
+                        document.getElementById("pixtu-href").href = "https://www.pixtu.io";
+                        // execPopup(value.timeInSeconds)  
+                        execPopup(1)
+                      } else if (value.clicks>value.converts){
+                        document.getElementById("pixtu-title").innerHTML = "Pixtu.io prediction:";
+                        document.getElementById("pixtu-description").innerHTML = "You will spend " + value.timeInSeconds.toFixed(0) + " seconds on this page, and you are likely to convert. This makes us happy!<br>Get started now for free from below link:"
+                        document.getElementById("pixtu-html").innerHTML = `
+                        <a id="get-started-2" class="button is-primary is-large" style="margin-bottom: 10px;" href="https://app.gitbook.com/@globalreactioncompany/s/pointng/">
+              <span>
+                <strong>Get started</strong>
+              </span>
+            </a>`
+                        document.getElementById("pixtu-link").innerHTML = "Check out Pixtu.io";
+                        document.getElementById("pixtu-href").href = "https://www.pixtu.io";
+                        // execPopup(value.timeInSeconds)
+                        execPopup(1)
+                      } else {
+                        document.getElementById("pixtu-title").innerHTML = "Pixtu.io prediction:";
+                        document.getElementById("pixtu-description").innerHTML = "You will spend " + value.timeInSeconds.toFixed(0) + " seconds on this page, and you are very likely to convert. This makes us happy!<br>Please sign up now for free to get started:"
+                        document.getElementById("pixtu-html").innerHTML = `
+                        <a id="get-started-3" class="button is-primary is-large" style="margin-bottom: 10px;" href="https://app.pointng.io/register">
+              <span>
+                <strong>Get started</strong>
+              </span>
+            </a>`
+                        document.getElementById("pixtu-link").innerHTML = "Check out Pixtu.io";
+                        document.getElementById("pixtu-href").href = "https://www.pixtu.io";
+                        // execPopup(value.timeInSeconds)
+                        execPopup(1)
+                      }
+
                   })
 
-               } else if (pixtuTestGroup == 'B') {
+
+               } else if (measurementGroup == 'B') {
 
                 var pixtu_prediction = new PixtuPrediction('fb8cc2cd-187d-4835-a397-3cb83798d2pp')
          
                   pixtu_prediction.getPrediction().then().then(value => {    
                     console.log("Pixtu prediction ready:")
                      console.log(value)     
-
-                      document.getElementById("pixtu-title").innerHTML = "Stay in the loop:";
-                        document.getElementById("pixtu-description").innerHTML = "Subscribe to our newsletter and be the first one to hear about pointNG updates and news."
+                     if (value.leaves > value.converts && value.leaves > value.clicks && value.timeInSeconds < 16) {
+                        document.getElementById("pixtu-title").innerHTML = "Pixtu.io prediction:";
+                        document.getElementById("pixtu-description").innerHTML = "You will bounce after " + value.timeInSeconds.toFixed(0) + " from entering this page. This makes us sad.<br>Please at least leave your email address so we can get back to you with pointNG related news."
+                        document.getElementById("pixtu-link").innerHTML = "Check out Pixtu.io";
+                        document.getElementById("pixtu-html").innerHTML = `<p style="color: red;">Foo</p>`
+                        document.getElementById("pixtu-href").href = "https://consolechat.io";
+                        execPopup(value.timeInSeconds)
+                        console.log("show popu")
+                        // execPopup(1)
+                      } else if (value.leaves > value.converts && value.leaves > value.clicks) {
+                        document.getElementById("pixtu-title").innerHTML = "Pixtu.io prediction:";
+                        document.getElementById("pixtu-description").innerHTML = "You will spend " + value.timeInSeconds.toFixed(0) + " seconds on this page, and you are not likely to convert. This makes us sad.<br>Please at least leave your email address so we can get back to you with pointNG related news."
                         document.getElementById("pixtu-html").innerHTML = `
                 <div class="field">
-                  <form id="submit-email-2" name="form" novalidate="" action="https://dev.us7.list-manage.com/subscribe/post?u=71500ff84b0a3743f7dd57cbd&amp;id=df43edeefa" method="POST" onsubmit="return confSubmit();">
+                  <form name="form" novalidate="" action="https://dev.us7.list-manage.com/subscribe/post?u=71500ff84b0a3743f7dd57cbd&amp;id=df43edeefa" method="POST">
                     <label class="label" style="color: #fff; opacity: 0.8;">Email</label>
                     <div class="control" style="margin-bottom: 20px">
                           <input type="email" name="EMAIL" class="input" pattern="/^[a-zA-Z0-9+-_]+(\.[_a-zA-Z0-9+]+)*@[a-zA-Z0-9+-_]+(\.[a-zA-Z0-9+-_]+)*(\.[a-zA-Z]+)$/" placeholder="your@email.com" aria-required="true" required="required">
                     </div>
-                          <button type="submit" class="button is-primary"><span>SUBMIT</span></button>
+                          <button id="submit-email-4" type="submit" class="button is-primary"><span>SUBMIT</span></button>
   
                   </form>
                 </div>`
+                        document.getElementById("pixtu-link").innerHTML = "Check out Pixtu.io";
+                        document.getElementById("pixtu-href").href = "https://www.pixtu.io";
+                        execPopup(value.timeInSeconds)  
+                        // execPopup(1)
+                      } else if (value.clicks>value.converts){
+                        document.getElementById("pixtu-title").innerHTML = "Pixtu.io prediction:";
+                        document.getElementById("pixtu-description").innerHTML = "You will spend " + value.timeInSeconds.toFixed(0) + " seconds on this page, and you are likely to convert. This makes us happy!<br>Get started now for free from below link:"
+                        document.getElementById("pixtu-html").innerHTML = `
+                        <a id="get-started-4" class="button is-primary is-large" style="margin-bottom: 10px;" href="https://app.gitbook.com/@globalreactioncompany/s/pointng/">
+              <span>
+                <strong>Get started</strong>
+              </span>
+            </a>`
+                        document.getElementById("pixtu-link").innerHTML = "Check out Pixtu.io";
+                        document.getElementById("pixtu-href").href = "https://www.pixtu.io";
                         execPopup(value.timeInSeconds)
-                      
-                    })
+                        // execPopup(1)
+                      } else {
+                        document.getElementById("pixtu-title").innerHTML = "Pixtu.io prediction:";
+                        document.getElementById("pixtu-description").innerHTML = "You will spend " + value.timeInSeconds.toFixed(0) + " seconds on this page, and you are very likely to convert. This makes us happy!<br>Please sign up now for free to get started:"
+                        document.getElementById("pixtu-html").innerHTML = `
+                        <a id="get-started-5" class="button is-primary is-large" style="margin-bottom: 10px;" href="https://app.pointng.io/register">
+              <span>
+                <strong>Get started</strong>
+              </span>
+            </a>`
+                        document.getElementById("pixtu-link").innerHTML = "Check out Pixtu.io";
+                        document.getElementById("pixtu-href").href = "https://www.pixtu.io";
+                        execPopup(value.timeInSeconds)
+                        // execPopup(1)
+                      }
+                  })
 
-               } else {
-
-                  var pixtu_prediction = new PixtuPrediction('fb8cc2cd-187d-4835-a397-3cb83798d2pp')
-
-                    pixtu_prediction.getPrediction().then().then(value => {   
-                      console.log("Pixtu prediction ready:")
-                            console.log(value)  
-                        if (value.subscribes > value.leaves) { 
-   
-
-                              document.getElementById("pixtu-title").innerHTML = "Stay in the loop:";
-                                document.getElementById("pixtu-description").innerHTML = "Subscribe to our newsletter and be one of the first to hear about pointNG updates and news."
-                                document.getElementById("pixtu-html").innerHTML = `
-                              <div class="field">
-                                <form id="submit-email-2" name="form" novalidate="" action="https://dev.us7.list-manage.com/subscribe/post?u=71500ff84b0a3743f7dd57cbd&amp;id=df43edeefa" method="POST" onsubmit="return confSubmit();">
-                                  <label class="label" style="color: #fff; opacity: 0.8;">Email</label>
-                                  <div class="control" style="margin-bottom: 20px">
-                                        <input type="email" name="EMAIL" class="input" pattern="/^[a-zA-Z0-9+-_]+(\.[_a-zA-Z0-9+]+)*@[a-zA-Z0-9+-_]+(\.[a-zA-Z0-9+-_]+)*(\.[a-zA-Z]+)$/" placeholder="your@email.com" aria-required="true" required="required">
-                                  </div>
-                                        <button type="submit" class="button is-primary"><span>SUBMIT</span></button>
-
-                                </form>
-                              </div>`
-                                execPopup(value.timeInSeconds)
-                        }
-                      })
-
-                  }
+               }
           }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -878,7 +962,7 @@
                         $("#modal").removeClass('is-active');
                       });
 
-        })
+                  })
       }
     </script>
     <script src="https://cdn.consolechat.io/console-chat-min.js"></script>
@@ -888,9 +972,6 @@
   <!-- Mixpanel events -->
   <script>
     window.addEventListener('load', (event) => {
-      mixpanel.track_forms("#submit-email-3","Email subscription submit", {
-          "test_group": pixtuTestGroup
-        });
       console.log("window loaded")
 
       //Navbar events
@@ -900,7 +981,7 @@
       mixpanel.track_links("#nav-contact","Navbar Contact lnk clicked");
       mixpanel.track_links("#nav-signup","Navbar Signup link clicked");
       document.getElementById("nav-signup").addEventListener("click", function() {
-            pixtu("event", "signup")
+            pixtu("event", "conversion")
       });
       mixpanel.track_links("#nav-login","Navbar Login link clicked");
       mixpanel.track_links("#close","Location prediction result popup Close button clicked");
@@ -908,9 +989,58 @@
       //Main Hero module events
       mixpanel.track_links("#get-started","Get started main module button clicked");
       
+      if(document.getElementById("get-started")){
+
+        mixpanel.track_links("#get-started","Get started pixtu button clicked", {
+          "test_group": getCookie('pixtu_test_group')
+        });
+        document.getElementById("get-started").addEventListener("click", function() {
+            pixtu("event", "conversion")
+        });
+
+      }
+
+      if(document.getElementById("get-started-2")){
+
+        mixpanel.track_links("#get-started-2","Get started pixtu button clicked", {
+          "test_group": getCookie('pixtu_test_group')
+        });
+        document.getElementById("get-started-2").addEventListener("click", function() {
+            pixtu("event", "conversion")
+        });
+      }
+
+      if(document.getElementById("get-started-3")){
+
+        mixpanel.track_links("#get-started-3","Get started pixtu button clicked", {
+          "test_group": getCookie('pixtu_test_group')
+        });
+        document.getElementById("get-started-3").addEventListener("click", function() {
+              pixtu("event", "conversion")
+        });
+      }
+      if(document.getElementById("get-started-4")){
+
+        mixpanel.track_links("#get-started-4","Get started pixtu button clicked", {
+          "test_group": getCookie('pixtu_test_group')
+        });
+        document.getElementById("get-started-4").addEventListener("click", function() {
+              pixtu("event", "conversion")
+        });
+      }
+      if(document.getElementById("get-started-5")){
+
+        mixpanel.track_links("#get-started-5","Get started pixtu button clicked", {
+          "test_group": getCookie('pixtu_test_group')
+        });
+        document.getElementById("get-started-5").addEventListener("click", function() {
+              pixtu("event", "conversion")
+        });
+      }
+
       mixpanel.track_links("#get-started-for-free","Get started for free button clicked");
       document.getElementById("get-started-for-free").addEventListener("click", function() {
-            pixtu("event", "signup")
+            pixtu("event", "conversion")
       });
       mixpanel.track_links("#documentation","Documentation button clicked");
 
@@ -941,50 +1071,62 @@
       mixpanel.track_links("#footer-grew","Footer Grew link clicked");
 
       //Pixtu.io popup link
-      if(document.getElementById("pixtu-href")){
+      if(document.getElementById("get-started-2")){
 
         mixpanel.track_links("#pixtu_href","Pixtu.io popup link clicked", {
-          "test_group": pixtuTestGroup
+          "test_group": getCookie('pixtu_test_group')
         });
 
       }
 
+      if(document.getElementById("submit-email")){
+
+        mixpanel.track_links("#submit-email","Email subscription submit", {
+          "test_group": getCookie('pixtu_test_group')
+        });
+      }
+
+      if(document.getElementById("submit-email-2")){
+
+        mixpanel.track_links("#submit-email-2","Email subscription submit", {
+          "test_group": getCookie('pixtu_test_group')
+        });
+
+      }
+
+      if(document.getElementById("submit-email-3")){
+
+        mixpanel.track_links("#submit-email-3","Email subscription submit", {
+          "test_group": getCookie('pixtu_test_group')
+        });
+
+      }
+
+      if(document.getElementById("submit-email-4")){
+
+        mixpanel.track_links("#submit-email-4","Email subscription submit", {
+          "test_group": getCookie('pixtu_test_group')
+        });
+
+      }
+
+      if(document.getElementById("submit-email-5")){
+        mixpanel.track_links("#submit-email-5","Email subscription submit", {
+          "test_group": getCookie('pixtu_test_group')
+        });
+    }
+
     })
 
-    function confSubmit() {
-
-        pixtu("event", "subscription")
-        mixpanel.track("Email subscription Pixtu popup submit", {
-          "test_group": pixtuTestGroup
-        });
-        console.log("Subscription")
-        setTimeout(function() { console.log("subscribe") }, 2*1000);
-        document.forms[event.target.id].submit();
-        return false;
-    }
-
-    function confSubscription() {
-
-    pixtu("event", "subscription")
-      mixpanel.track("Email subscription submit", {
-        "test_group": pixtuTestGroup
-      });
-      console.log("Subscription")
-      setTimeout(function() { console.log("subscribe") }, 2*1000);
-      document.forms[event.target.id].submit();
-      return false;
-    }
-
-    function trackGetStarted() {
-      console.log("Track get started")
-        mixpanel.track("Get started pixtu button clicked", {
-          "test_group": pixtuTestGroup
-        });
-        pixtu("event", "signup")
-
-    }
-
-
+    // document.getElementById("get-started").addEventListener("click", function() {
+    //   mixpanel.track("Get started main module button click");
+    // });
+    // document.getElementById("get-started-for-free").addEventListener("click", function() {
+    //   mixpanel.track("Get started for free button click");
+    // });
+    // document.getElementById("documentation").addEventListener("click", function() {
+    //   mixpanel.track("Documentation button click");
+    // });
   </script> 
 
   </body>
