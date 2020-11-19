@@ -322,6 +322,12 @@ window.addEventListener('load', (event) => {
 
   //Main Hero module events
   mixpanel.track_links("#get-started","Get started main module button clicked");
+  mixpanel.track_links("#view-docs","View docs main module button clicked");
+
+  mixpanel.track_links("#developer-friendly","Developer friendly USP clicked");
+  mixpanel.track_links("#one-stop-shop","One stop shop USP clicked");
+  mixpanel.track_links("#privacy-by-design","Privacy by design USP clicked");
+  mixpanel.track_links("#empower-the-user","Empower the user USP clicked");
   
   mixpanel.track_links("#get-started-for-free","Get started for free button clicked");
   document.getElementById("get-started-for-free").addEventListener("click", function() {
