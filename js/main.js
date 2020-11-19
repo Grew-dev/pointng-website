@@ -315,7 +315,7 @@ window.addEventListener('load', (event) => {
   mixpanel.track_links("#nav-contact","Navbar Contact lnk clicked");
   mixpanel.track_links("#nav-signup","Navbar Signup link clicked");
   document.getElementById("nav-signup").addEventListener("click", function() {
-        pixtu("event", "signup")
+    pixtu("event", "signup")
   });
   mixpanel.track_links("#nav-login","Navbar Login link clicked");
   mixpanel.track_links("#close","Location prediction result popup Close button clicked");
