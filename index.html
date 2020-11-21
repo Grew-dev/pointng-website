@@ -223,6 +223,20 @@
                 </nav>
               </div>
           </div>
+          <div class="container main-box">
+            <p>Easy to build and use:</p>
+            <pre class="main-pre">&lt;script src="https://cdn.pointng.io/pointng-min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  const pointng = new PointNG({
+    api_key: "api-key",
+    level: 'city'
+  });
+  pointng.getLocation().then(function(prediction) {
+    console.log(pointng.prediction)
+  })
+&lt;/script&gt;</pre>
+          
+          </div>
           <p class="subtitle is-6">Sign up to get started for free.</p>
             <a id="get-started" class="button is-primary is-large" style="margin-bottom: 10px;" target="_blank" href="https://app.pointng.io/register">
               <span>
@@ -236,20 +250,6 @@
             </a>
           </div>
    
-          <div class="container main-box">
-            <p>To test pointNG in your development environment, copy paste this to your front end code:</p>
-            <pre class="main-pre">&lt;script src="https://cdn.pointng.io/pointng.js?v=beta"&gt;&lt;/script&gt;
-&lt;script&gt;
-  const pointng = new PointNG({
-    api_key: "beta",
-    level: 'city'
-  });
-  pointng.getLocation().then(function(prediction) {
-    console.log(pointng.prediction)
-  })
-&lt;/script&gt;</pre>
-          
-          </div>
         </div>
       </section> 
 
