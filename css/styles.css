@@ -8,11 +8,17 @@ body {
 
   .main-container {
     margin: 0 auto;
-    background-color: #fff;
+    /* background-color: #fff; */
     padding: 3rem 3rem;
-    margin-bottom: 3rem;
+    /* margin-bottom: 3rem; */
     border: none;
   }
+
+  .main-pre {
+    min-height: 300px;
+  }
+
+  
     
   .pointng-container {
     max-width: 800px;
@@ -73,6 +79,13 @@ body {
     box-shadow: 0 2px 6px 0 rgba(0,0,0,.4);
     margin-top: 20px;
   }
+
+  .navbar-link, a.navbar-item {
+    cursor: pointer;
+    transition: all .25s ease-out;
+    color: #767ead;
+}
+
   .sub-pre {
     text-align: left;
     max-width: 600px;
@@ -88,7 +101,7 @@ body {
     margin-top: 10px !important;
   }
   .main-box {
-    background: white;
+    /* background: white; */
     border-radius: 10px;
     padding: 40px;
     text-align: center;

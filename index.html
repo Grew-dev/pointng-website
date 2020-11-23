@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>pointNG</title>
-    <meta name="description" content="Get user location securely in JavaScript. Privacy-first plugin for detecting user location in the browser."/>
+    <meta name="description" content="Get user location securely in JavaScript. Privacy-first plugin for detecting user's GPS-location in the browser."/>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link rel="icon" href="https://cdn.pointng.io/pointng_widget.svg">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
@@ -127,7 +127,7 @@
           </div>
           <div id="navbarMenuHeroA" class="navbar-menu">
             <div class="navbar-end">
-              <a id="nav-why" class="navbar-item is-active" href="#why">
+              <a id="nav-why" class="navbar-item" href="#why">
                 Why use pointNG
               </a>
               <a id="nav-examples" class="navbar-item" href="https://globalreactioncompany.gitbook.io/pointng/examples" target="_blank">
@@ -161,14 +161,15 @@
     <!-- Navbar end -->
   
     <!-- Page loader end -->
-    <section class="hero is-medium" style="background-color: #fff;">
-        <div class="hero-body">
-          <div class="container main-box">
+    <section class="hero is-medium">
+      <div class="container">
+
+          <div class="main-box">
             <h1 class="title main-title">
               Get User Location Securely in JavaScript
             </h1>
             <h2 class="subtitle main-subtitle">
-              Privacy-first plugin for detecting user's GPS-based location in the browser.
+              Privacy-first plugin for detecting user's GPS-location in the browser.
             </h2>
             <div class="main-container">
               <div class="bd-focus">
@@ -230,11 +231,21 @@
                   </a>
                 </nav>
               </div>
-          </div>
-          <div style="margin-bottom: 20px;"">
-            <h2 class="title pointng-title">Easy to build, easy to use</h2>
+            </div>
+        </section>
+  <section class="hero is-medium" style="background-color: #fff;">
+      <div class="main-box">
+        <div class="main-container">
+    <h2 class="title pointng-title">Easy to build, easy to use</h2>
+        <div class="columns">
+       
+          <div class="column" style="margin-bottom: 20px;">
+           
             <!-- <p class="subtitle is-6">Easy to build and use:</p> -->
-            <pre class="main-pre">&lt;script src="https://cdn.pointng.io/pointng-min.js"&gt;&lt;/script&gt;
+      
+            <pre class="main-pre">
+<span style="color: yellow">FUNCTION:</span>
+&lt;script src="https://cdn.pointng.io/pointng-min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
   const pointng = new PointNG({
     api_key: "api-key",
@@ -246,7 +257,32 @@
 &lt;/script&gt;</pre>
           
           </div>
-          <p class="subtitle is-6">Sign up to get started for free.</p>
+
+          <div class="column" style="margin-bottom: 0px;"">
+            <pre class="main-pre">
+<span style="color: yellow">RESULT:</span>
+{
+   <span class="continent">continent: Europe</span>,
+   <span class="sub_region">sub_continent: Northern Europe</span>,
+   <span class="country">country: Finland</span>,
+   <span class="iso2">iso2: FI</span>,
+   <span class="capital">capital: Helsinki</span>,
+   <span class="currency">currency: EUR</span>,
+   <span class="phone_code">phone_code: 358</span>
+   <span class="state">state: Uusimaa</span>
+   <span class="city">city: Helsinki</span>
+}
+</pre>
+
+          </div>
+          
+        </div>
+        <button id="updateData" class="button is-primary is-large" style="margin-bottom: 1rem;" onclick="tryThis2()" >
+          <span>
+              <small>Update securely with your location</small>
+          </span>
+        </button>
+          <p class="subtitle is-4" style="margin-top: 20px;">Sign up to get started for free.</p>
             <a id="get-started" class="button is-primary is-large" style="margin-bottom: 10px;" target="_blank" href="https://app.pointng.io/register">
               <span>
                 <strong>Get started</strong>
@@ -258,7 +294,7 @@
               </span>
             </a>
           </div>
-   
+        </div>
         </div>
       </section> 
 

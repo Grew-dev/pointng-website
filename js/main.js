@@ -261,6 +261,16 @@ async function firePopup() {
           if (pointng.predictionData.phone_code) $("#phone_code").html('Phone prefix: ' + pointng.predictionData.phone_code)
           if (pointng.predictionData.state) $("#state").html('State: ' + pointng.predictionData.state)
           if (pointng.predictionData.city) $("#city").html('City: ' + pointng.predictionData.city)
+
+          if (pointng.predictionData.continent) $(".continent").html('Continent: ' + pointng.predictionData.continent)
+          if (pointng.predictionData.sub_continent) $(".sub_continent").html('Sub continent: ' + pointng.predictionData.sub_continent)
+          if (pointng.predictionData.country) $(".country").html('Country: ' + pointng.predictionData.country)
+          if (pointng.predictionData.iso2) $(".iso2").html('ISO2: ' + pointng.predictionData.iso2)
+          if (pointng.predictionData.capital) $(".capital").html('Capital: ' + pointng.predictionData.capital)
+          if (pointng.predictionData.currency) $(".currency").html('Currency: ' + pointng.predictionData.currency)
+          if (pointng.predictionData.phone_code) $(".phone_code").html('Phone prefix: ' + pointng.predictionData.phone_code)
+          if (pointng.predictionData.state) $(".state").html('State: ' + pointng.predictionData.state)
+          if (pointng.predictionData.city) $(".city").html('City: ' + pointng.predictionData.city)
           console.log(pointng.predictionData)
           $( "#close" ).click(function() {
               $("#modal").removeClass('is-active');
@@ -277,6 +287,11 @@ async function firePopup() {
     pointngLocate()
   }
 
+  var tryThis2 = function() {
+    $("#updateData").addClass('is-loading');
+    mixpanel.track("Update with my data button click");
+    pointngUpdateData()
+  }
 
   var pointngLocate = function() {
     pointng.getLocation().then(function(prediction) {
@@ -293,6 +308,16 @@ async function firePopup() {
                   if (prediction.phone_code) $("#phone_code").html('Phone prefix: ' + prediction.phone_code)
                   if (prediction.state) $("#state").html('State: ' + prediction.state)
                   if (prediction.city) $("#city").html('City: ' + prediction.city)
+   
+                  if (pointng.predictionData.continent) $(".continent").html('Continent: ' + pointng.predictionData.continent)
+                  if (pointng.predictionData.sub_continent) $(".sub_continent").html('Sub continent: ' + pointng.predictionData.sub_continent)
+                  if (pointng.predictionData.country) $(".country").html('Country: ' + pointng.predictionData.country)
+                  if (pointng.predictionData.iso2) $(".iso2").html('ISO2: ' + pointng.predictionData.iso2)
+                  if (pointng.predictionData.capital) $(".capital").html('Capital: ' + pointng.predictionData.capital)
+                  if (pointng.predictionData.currency) $(".currency").html('Currency: ' + pointng.predictionData.currency)
+                  if (pointng.predictionData.phone_code) $(".phone_code").html('Phone prefix: ' + pointng.predictionData.phone_code)
+                  if (pointng.predictionData.state) $(".state").html('State: ' + pointng.predictionData.state)
+                  if (pointng.predictionData.city) $(".city").html('City: ' + pointng.predictionData.city)
 
                   $( "#close" ).click(function() {
                     $("#modal").removeClass('is-active');
@@ -301,9 +326,30 @@ async function firePopup() {
     })
   }
 
+  var pointngUpdateData = function() {
+    pointng.getLocation().then(function(prediction) {
+                  console.log("Predicted country: " + prediction.country)
+                  console.log(pointng.predictionData)
+                  $("#updateData").removeClass('is-loading');
+   
+                  if (pointng.predictionData.continent) $(".continent").html('continent: ' + pointng.predictionData.continent)
+                  if (pointng.predictionData.sub_continent) $(".sub_continent").html('sub_continent: ' + pointng.predictionData.sub_continent)
+                  if (pointng.predictionData.country) $(".country").html('country: ' + pointng.predictionData.country)
+                  if (pointng.predictionData.iso2) $(".iso2").html('iso2: ' + pointng.predictionData.iso2)
+                  if (pointng.predictionData.capital) $(".capital").html('capital: ' + pointng.predictionData.capital)
+                  if (pointng.predictionData.currency) $(".currency").html('currency: ' + pointng.predictionData.currency)
+                  if (pointng.predictionData.phone_code) $(".phone_code").html('phone_code: ' + pointng.predictionData.phone_code)
+                  if (pointng.predictionData.state) $(".state").html('state: ' + pointng.predictionData.state)
+                  if (pointng.predictionData.city) $(".city").html('city: ' + pointng.predictionData.city)
+
+
+    })
+  }
+
 
 
 window.addEventListener('load', (event) => {
+  
   mixpanel.track_forms("#submit-email-3","Email subscription submit", {
       "test_group": pixtuTestGroup
     });
@@ -318,7 +364,7 @@ window.addEventListener('load', (event) => {
     pixtu("event", "signup")
   });
   mixpanel.track_links("#nav-login","Navbar Login link clicked");
-  mixpanel.track_links("#close","Location prediction result popup Close button clicked");
+  // mixpanel.track_links("#close","Location prediction result popup Close button clicked");
 
   //Main Hero module events
   mixpanel.track_links("#get-started","Get started main module button clicked");
