@@ -262,15 +262,25 @@ async function firePopup() {
           if (pointng.predictionData.state) $("#state").html('State: ' + pointng.predictionData.state)
           if (pointng.predictionData.city) $("#city").html('City: ' + pointng.predictionData.city)
 
-          if (pointng.predictionData.continent) $(".continent").html('Continent: ' + pointng.predictionData.continent)
-          if (pointng.predictionData.sub_continent) $(".sub_continent").html('Sub continent: ' + pointng.predictionData.sub_continent)
-          if (pointng.predictionData.country) $(".country").html('Country: ' + pointng.predictionData.country)
-          if (pointng.predictionData.iso2) $(".iso2").html('ISO2: ' + pointng.predictionData.iso2)
-          if (pointng.predictionData.capital) $(".capital").html('Capital: ' + pointng.predictionData.capital)
-          if (pointng.predictionData.currency) $(".currency").html('Currency: ' + pointng.predictionData.currency)
-          if (pointng.predictionData.phone_code) $(".phone_code").html('Phone prefix: ' + pointng.predictionData.phone_code)
-          if (pointng.predictionData.state) $(".state").html('State: ' + pointng.predictionData.state)
-          if (pointng.predictionData.city) $(".city").html('City: ' + pointng.predictionData.city)
+          if (pointng.predictionData.continent) $(".continent").html('')
+          if (pointng.predictionData.sub_continent) $(".sub_continent").html('')
+          if (pointng.predictionData.country) $(".country").html('')
+          if (pointng.predictionData.iso2) $(".iso2").html('')
+          if (pointng.predictionData.capital) $(".capital").html('')
+          if (pointng.predictionData.currency) $(".currency").html('')
+          if (pointng.predictionData.phone_code) $(".phone_code").html('')
+          if (pointng.predictionData.state) $(".state").html('')
+          if (pointng.predictionData.city) $(".city").html('')
+
+          if (pointng.predictionData.continent) $(".continent").html('continent: ' + pointng.predictionData.continent + ',')
+          if (pointng.predictionData.sub_continent) $(".sub_continent").html('sub_continent: ' + pointng.predictionData.sub_continent + ',')
+          if (pointng.predictionData.country) $(".country").html('country: ' + pointng.predictionData.country + ',')
+          if (pointng.predictionData.iso2) $(".iso2").html('iso2: ' + pointng.predictionData.iso2 + ',')
+          if (pointng.predictionData.capital) $(".capital").html('capital: ' + pointng.predictionData.capital + ',')
+          if (pointng.predictionData.currency) $(".currency").html('currency: ' + pointng.predictionData.currency + ',')
+          if (pointng.predictionData.phone_code) $(".phone_code").html('phone_code: ' + pointng.predictionData.phone_code + ',')
+          if (pointng.predictionData.state) $(".state").html('state: ' + pointng.predictionData.state + ',')
+          if (pointng.predictionData.city) $(".city").html('city: ' + pointng.predictionData.city)
           console.log(pointng.predictionData)
           $( "#close" ).click(function() {
               $("#modal").removeClass('is-active');
@@ -296,6 +306,7 @@ async function firePopup() {
   var pointngLocate = function() {
     pointng.getLocation().then(function(prediction) {
                   console.log("Predicted country: " + prediction.country)
+                  mixpanel.track("pointNG prediction ready");
                   console.log(pointng.predictionData)
                   $("#tryThis").removeClass('is-loading');
                   $("#modal").addClass('is-active');
@@ -308,16 +319,26 @@ async function firePopup() {
                   if (prediction.phone_code) $("#phone_code").html('Phone prefix: ' + prediction.phone_code)
                   if (prediction.state) $("#state").html('State: ' + prediction.state)
                   if (prediction.city) $("#city").html('City: ' + prediction.city)
+
+                  if (pointng.predictionData.continent) $(".continent").html('')
+                  if (pointng.predictionData.sub_continent) $(".sub_continent").html('')
+                  if (pointng.predictionData.country) $(".country").html('')
+                  if (pointng.predictionData.iso2) $(".iso2").html('')
+                  if (pointng.predictionData.capital) $(".capital").html('')
+                  if (pointng.predictionData.currency) $(".currency").html('')
+                  if (pointng.predictionData.phone_code) $(".phone_code").html('')
+                  if (pointng.predictionData.state) $(".state").html('')
+                  if (pointng.predictionData.city) $(".city").html('')
    
-                  if (pointng.predictionData.continent) $(".continent").html('Continent: ' + pointng.predictionData.continent)
-                  if (pointng.predictionData.sub_continent) $(".sub_continent").html('Sub continent: ' + pointng.predictionData.sub_continent)
-                  if (pointng.predictionData.country) $(".country").html('Country: ' + pointng.predictionData.country)
-                  if (pointng.predictionData.iso2) $(".iso2").html('ISO2: ' + pointng.predictionData.iso2)
-                  if (pointng.predictionData.capital) $(".capital").html('Capital: ' + pointng.predictionData.capital)
-                  if (pointng.predictionData.currency) $(".currency").html('Currency: ' + pointng.predictionData.currency)
-                  if (pointng.predictionData.phone_code) $(".phone_code").html('Phone prefix: ' + pointng.predictionData.phone_code)
-                  if (pointng.predictionData.state) $(".state").html('State: ' + pointng.predictionData.state)
-                  if (pointng.predictionData.city) $(".city").html('City: ' + pointng.predictionData.city)
+                  if (pointng.predictionData.continent) $(".continent").html('continent: ' + pointng.predictionData.continent + ',')
+                  if (pointng.predictionData.sub_continent) $(".sub_continent").html('sub_continent: ' + pointng.predictionData.sub_continent + ',')
+                  if (pointng.predictionData.country) $(".country").html('country: ' + pointng.predictionData.country + ',')
+                  if (pointng.predictionData.iso2) $(".iso2").html('iso2: ' + pointng.predictionData.iso2 + ',')
+                  if (pointng.predictionData.capital) $(".capital").html('capital: ' + pointng.predictionData.capital + ',')
+                  if (pointng.predictionData.currency) $(".currency").html('currency: ' + pointng.predictionData.currency + ',')
+                  if (pointng.predictionData.phone_code) $(".phone_code").html('phone_code: ' + pointng.predictionData.phone_code + ',')
+                  if (pointng.predictionData.state) $(".state").html('state: ' + pointng.predictionData.state + ',')
+                  if (pointng.predictionData.city) $(".city").html('city: ' + pointng.predictionData.city)
 
                   $( "#close" ).click(function() {
                     $("#modal").removeClass('is-active');
@@ -330,6 +351,7 @@ async function firePopup() {
     pointng.getLocation().then(function(prediction) {
                   console.log("Predicted country: " + prediction.country)
                   console.log(pointng.predictionData)
+                  mixpanel.track("pointNG prediction ready");
                   $("#updateData").removeClass('is-loading');
    
                   if (pointng.predictionData.continent) $(".continent").html('continent: ' + pointng.predictionData.continent)
@@ -341,6 +363,27 @@ async function firePopup() {
                   if (pointng.predictionData.phone_code) $(".phone_code").html('phone_code: ' + pointng.predictionData.phone_code)
                   if (pointng.predictionData.state) $(".state").html('state: ' + pointng.predictionData.state)
                   if (pointng.predictionData.city) $(".city").html('city: ' + pointng.predictionData.city)
+
+                  if (pointng.predictionData.continent) $(".continent").html('')
+                  if (pointng.predictionData.sub_continent) $(".sub_continent").html('')
+                  if (pointng.predictionData.country) $(".country").html('')
+                  if (pointng.predictionData.iso2) $(".iso2").html('')
+                  if (pointng.predictionData.capital) $(".capital").html('')
+                  if (pointng.predictionData.currency) $(".currency").html('')
+                  if (pointng.predictionData.phone_code) $(".phone_code").html('')
+                  if (pointng.predictionData.state) $(".state").html('')
+                  if (pointng.predictionData.city) $(".city").html('')
+   
+                  if (pointng.predictionData.continent) $(".continent").html('continent: ' + pointng.predictionData.continent + ',')
+                  if (pointng.predictionData.sub_continent) $(".sub_continent").html('sub_continent: ' + pointng.predictionData.sub_continent + ',')
+                  if (pointng.predictionData.country) $(".country").html('country: ' + pointng.predictionData.country + ',')
+                  if (pointng.predictionData.iso2) $(".iso2").html('iso2: ' + pointng.predictionData.iso2 + ',')
+                  if (pointng.predictionData.capital) $(".capital").html('capital: ' + pointng.predictionData.capital + ',')
+                  if (pointng.predictionData.currency) $(".currency").html('currency: ' + pointng.predictionData.currency + ',')
+                  if (pointng.predictionData.phone_code) $(".phone_code").html('phone_code: ' + pointng.predictionData.phone_code + ',')
+                  if (pointng.predictionData.state) $(".state").html('state: ' + pointng.predictionData.state + ',')
+                  if (pointng.predictionData.city) $(".city").html('city: ' + pointng.predictionData.city)
+
 
 
     })
