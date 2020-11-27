@@ -99,7 +99,7 @@ body {
   }
   .main-subtitle {
     margin-top: 10px !important;
-    font-weight: 700;
+    /* font-weight: 700; */
     color: #272240;
   }
   .main-box {
