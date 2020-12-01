@@ -87,6 +87,9 @@ body {
     color: #767ead;
 }
 
+.subtitle {
+  color:#776387;
+}
   .sub-pre {
     text-align: left;
     max-width: 600px;
