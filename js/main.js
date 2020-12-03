@@ -161,8 +161,8 @@ async function firePopup() {
                     console.log("Pixtu.io prediction:")
                  console.log(value)     
 
-                    document.getElementById("pixtu-title").innerHTML = "Stay in the loop:";
-                    document.getElementById("pixtu-description").innerHTML = "Subscribe to our newsletter and be the first one to hear about pointNG updates and news."
+                    document.getElementById("pixtu-title").innerHTML = "Join our BETA:";
+                    document.getElementById("pixtu-description").innerHTML = "Sign up to get an access to the pointNG BETA."
                     document.getElementById("pixtu-html").innerHTML = `
             <div class="field">
               <form id="submit-email-2" name="form" novalidate="" action="https://dev.us7.list-manage.com/subscribe/post?u=71500ff84b0a3743f7dd57cbd&amp;id=df43edeefa" method="POST" onsubmit="return confSubmit();">
@@ -185,8 +185,8 @@ async function firePopup() {
                 console.log("Pixtu.io prediction:")
                  console.log(value)     
 
-                  document.getElementById("pixtu-title").innerHTML = "Stay in the loop:";
-                    document.getElementById("pixtu-description").innerHTML = "Subscribe to our newsletter and be the first one to hear about pointNG updates and news."
+                 document.getElementById("pixtu-title").innerHTML = "Join our BETA:";
+                 document.getElementById("pixtu-description").innerHTML = "Sign up to get an access to the pointNG BETA."
                     document.getElementById("pixtu-html").innerHTML = `
             <div class="field">
               <form id="submit-email-2" name="form" novalidate="" action="https://dev.us7.list-manage.com/subscribe/post?u=71500ff84b0a3743f7dd57cbd&amp;id=df43edeefa" method="POST" onsubmit="return confSubmit();">
@@ -204,30 +204,30 @@ async function firePopup() {
 
            } else {
 
-              var pixtu_prediction = new PixtuPrediction('fb8cc2cd-187d-4835-a397-3cb83798d2pp')
+              // var pixtu_prediction = new PixtuPrediction('fb8cc2cd-187d-4835-a397-3cb83798d2pp')
 
-                pixtu_prediction.getPrediction().then().then(value => {   
-                  console.log("Pixtu.io prediction:")
-                        console.log(value)  
-                    if (value.subscribes > value.leaves) { 
+              //   pixtu_prediction.getPrediction().then().then(value => {   
+              //     console.log("Pixtu.io prediction:")
+              //           console.log(value)  
+              //       if (value.subscribes > value.leaves) { 
 
 
-                          document.getElementById("pixtu-title").innerHTML = "Stay in the loop:";
-                            document.getElementById("pixtu-description").innerHTML = "Subscribe to our newsletter and be one of the first to hear about pointNG updates and news."
-                            document.getElementById("pixtu-html").innerHTML = `
-                          <div class="field">
-                            <form id="submit-email-2" name="form" novalidate="" action="https://dev.us7.list-manage.com/subscribe/post?u=71500ff84b0a3743f7dd57cbd&amp;id=df43edeefa" method="POST" onsubmit="return confSubmit();">
-                              <label class="label" style="color: #fff; opacity: 0.8;">Email</label>
-                              <div class="control" style="margin-bottom: 20px">
-                                    <input type="email" name="EMAIL" class="input" pattern="/^[a-zA-Z0-9+-_]+(\.[_a-zA-Z0-9+]+)*@[a-zA-Z0-9+-_]+(\.[a-zA-Z0-9+-_]+)*(\.[a-zA-Z]+)$/" placeholder="your@email.com" aria-required="true" required="required">
-                              </div>
-                                    <button type="submit" class="button is-primary"><span>SUBMIT</span></button>
+              //             document.getElementById("pixtu-title").innerHTML = "Stay in the loop:";
+              //               document.getElementById("pixtu-description").innerHTML = "Subscribe to our newsletter and be one of the first to hear about pointNG updates and news."
+              //               document.getElementById("pixtu-html").innerHTML = `
+              //             <div class="field">
+              //               <form id="submit-email-2" name="form" novalidate="" action="https://dev.us7.list-manage.com/subscribe/post?u=71500ff84b0a3743f7dd57cbd&amp;id=df43edeefa" method="POST" onsubmit="return confSubmit();">
+              //                 <label class="label" style="color: #fff; opacity: 0.8;">Email</label>
+              //                 <div class="control" style="margin-bottom: 20px">
+              //                       <input type="email" name="EMAIL" class="input" pattern="/^[a-zA-Z0-9+-_]+(\.[_a-zA-Z0-9+]+)*@[a-zA-Z0-9+-_]+(\.[a-zA-Z0-9+-_]+)*(\.[a-zA-Z]+)$/" placeholder="your@email.com" aria-required="true" required="required">
+              //                 </div>
+              //                       <button type="submit" class="button is-primary"><span>SUBMIT</span></button>
 
-                            </form>
-                          </div>`
-                            execPopup(value.timeInSeconds)
-                    }
-                  })
+              //               </form>
+              //             </div>`
+              //               execPopup(value.timeInSeconds)
+              //       }
+              //     })
 
               }
       }
