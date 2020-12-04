@@ -61,6 +61,12 @@ body {
 .hero .title {
     color: rgb(96 70 131 / 70%);
 }
+@media only screen and (max-width: 436px) {
+  .hero .title {
+    color: rgb(96 70 131 / 70%);
+    font-size: 2.4rem;
+  }
+}
   .main-title {
     font-weight: 800;
     letter-spacing: -2px;
