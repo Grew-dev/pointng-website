@@ -234,7 +234,7 @@ async function firePopup() {
 
 
   const pointng = new PointNG({ 
-      api_key: "beta",
+      api_key: "03f0cfc1-9b8f-416f-9b21-f66879d3dbda",
       level: 'city',
       privacyPolicyLink: "https://beta.pointng.io/privacy",
       widgetPosition: 'right'
