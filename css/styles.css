@@ -173,16 +173,10 @@ body {
   padding: 40px;
   border: 1px solid #888;
   width: 80%;
+  max-width: 600px;
 }
 
-.pixtu-modal-content {
-    background-color: #0e2439;
-    color: #fff;
-    margin: auto;
-    padding: 40px;
-    border: 1px solid #888;
-    width: 80%;
-}
+
 .pixtu-modal-content {
     position: relative;
     -webkit-background-clip: padding-box;
