@@ -202,34 +202,7 @@ async function firePopup() {
                 
               })
 
-         } else {
-
-            // var pixtu_prediction = new PixtuPrediction('fb8cc2cd-187d-4835-a397-3cb83798d2pp')
-
-            //   pixtu_prediction.getPrediction().then().then(value => {   
-            //     console.log("Pixtu.io prediction:")
-            //           console.log(value)  
-            //       if (value.subscribes > value.leaves) { 
-
-
-            //             document.getElementById("pixtu-title").innerHTML = "Stay in the loop:";
-            //               document.getElementById("pixtu-description").innerHTML = "Subscribe to our newsletter and be one of the first to hear about pointNG updates and news."
-            //               document.getElementById("pixtu-html").innerHTML = `
-            //             <div class="field">
-            //               <form id="submit-email-2" name="form" novalidate="" action="https://dev.us7.list-manage.com/subscribe/post?u=71500ff84b0a3743f7dd57cbd&amp;id=df43edeefa" method="POST" onsubmit="return confSubmit();">
-            //                 <label class="label" style="color: #fff; opacity: 0.8;">Email</label>
-            //                 <div class="control" style="margin-bottom: 20px">
-            //                       <input type="email" name="EMAIL" class="input" pattern="/^[a-zA-Z0-9+-_]+(\.[_a-zA-Z0-9+]+)*@[a-zA-Z0-9+-_]+(\.[a-zA-Z0-9+-_]+)*(\.[a-zA-Z]+)$/" placeholder="your@email.com" aria-required="true" required="required">
-            //                 </div>
-            //                       <button type="submit" class="button is-primary"><span>SUBMIT</span></button>
-
-            //               </form>
-            //             </div>`
-            //               execPopup(value.timeInSeconds)
-            //       }
-            //     })
-
-            }
+         } 
     }
 
 
@@ -239,6 +212,26 @@ async function firePopup() {
       privacyPolicyLink: "https://beta.pointng.io/privacy",
       widgetPosition: 'right'
   }); 
+  pointng.getData().then(data => {
+    console.log("GET DATA:")
+    console.log(data)
+    $(".continent").html('continent: ' + data.continent + ',')
+    $(".continent_code").html('continent_code: ' + data.continent_code + ',')
+    $(".sub_region").html('sub_continent: ' + data.sub_region + ',')
+    $(".country").html('country: ' + data.country + ',')
+    $(".iso2").html('iso2: ' + data.iso2 + ',')
+    $(".iso3").html('iso3: ' + data.iso3 + ',')
+    $(".timezone").html('timezone: ' + data.timezone + ',')
+    $(".capital").html('capital: ' + data.capital + ',')
+    $(".currency").html('currency: ' + data.currency + ',')
+    $(".phone_code").html('phone_code: ' + data.phone_code + ',')
+    $(".state").html('state: ' + data.state + ',')
+    $(".city").html('city: ' + data.city);
+    $(".latitude").html('latitude: ' + data.latitude + ',')
+    $(".longitude").html('longitude: ' + data.longitude);
+  })
+   
+
   pointng.openWidget(pointng.start()).then(value => {        
     document.getElementById("locateMeWithPointNG").addEventListener("click", listenForPrediction)
   })
@@ -253,34 +246,46 @@ async function firePopup() {
         clearInterval(checkForUserLocation);
         $("#modal").addClass('is-active');
         if (pointng.predictionData.continent) $("#continent").html('Continent: ' + pointng.predictionData.continent)
-        if (pointng.predictionData.sub_continent) $("#sub_continent").html('Sub continent: ' + pointng.predictionData.sub_continent)
+        if (pointng.predictionData.sub_region) $("#sub_region").html('Sub continent: ' + pointng.predictionData.sub_region)
         if (pointng.predictionData.country) $("#country").html('Country: ' + pointng.predictionData.country)
         if (pointng.predictionData.iso2) $("#iso2").html('ISO2: ' + pointng.predictionData.iso2)
+        if (pointng.predictionData.iso3) $("#iso3").html('ISO2: ' + pointng.predictionData.iso3)
         if (pointng.predictionData.capital) $("#capital").html('Capital: ' + pointng.predictionData.capital)
         if (pointng.predictionData.currency) $("#currency").html('Currency: ' + pointng.predictionData.currency)
         if (pointng.predictionData.phone_code) $("#phone_code").html('Phone prefix: ' + pointng.predictionData.phone_code)
         if (pointng.predictionData.state) $("#state").html('State: ' + pointng.predictionData.state)
         if (pointng.predictionData.city) $("#city").html('City: ' + pointng.predictionData.city)
 
-        if (pointng.predictionData.continent) $(".continent").html('')
-        if (pointng.predictionData.sub_continent) $(".sub_continent").html('')
-        if (pointng.predictionData.country) $(".country").html('')
-        if (pointng.predictionData.iso2) $(".iso2").html('')
-        if (pointng.predictionData.capital) $(".capital").html('')
-        if (pointng.predictionData.currency) $(".currency").html('')
-        if (pointng.predictionData.phone_code) $(".phone_code").html('')
-        if (pointng.predictionData.state) $(".state").html('')
-        if (pointng.predictionData.city) $(".city").html('')
+        // if (pointng.predictionData.continent) $(".continent").html('')
+        // if (pointng.predictionData.continent_code) $(".continent_code").html('')
+        // if (pointng.predictionData.sub_continent) $(".sub_continent").html('')
+        // if (pointng.predictionData.country) $(".country").html('')
+        // if (pointng.predictionData.iso2) $(".iso2").html('')
+        // if (pointng.predictionData.iso3) $(".iso3").html('')
+        // if (pointng.predictionData.timezone) $(".timezone").html('')
+        // if (pointng.predictionData.capital) $(".capital").html('')
+        // if (pointng.predictionData.currency) $(".currency").html('')
+        // if (pointng.predictionData.phone_code) $(".phone_code").html('')
+        // if (pointng.predictionData.state) $(".state").html('')
+        // if (pointng.predictionData.city) $(".city").html('')
+        // if (pointng.predictionData.latitude) $(".latitude").html('')
+        // if (pointng.predictionData.longitude) $(".longitude").html('')
 
         if (pointng.predictionData.continent) $(".continent").html('continent: ' + pointng.predictionData.continent + ',')
-        if (pointng.predictionData.sub_continent) $(".sub_continent").html('sub_continent: ' + pointng.predictionData.sub_continent + ',')
+        if (pointng.predictionData.continent) $(".continent_code").html('continent_code: ' + pointng.predictionData.continent_code + ',')
+        if (pointng.predictionData.sub_region) $(".sub_region").html('sub_continent: ' + pointng.predictionData.sub_region + ',')
         if (pointng.predictionData.country) $(".country").html('country: ' + pointng.predictionData.country + ',')
         if (pointng.predictionData.iso2) $(".iso2").html('iso2: ' + pointng.predictionData.iso2 + ',')
+        if (pointng.predictionData.iso3) $(".iso3").html('iso3: ' + pointng.predictionData.iso3 + ',')
+        if (pointng.predictionData.timezone) $(".timezone").html('timezone: ' + pointng.predictionData.timezone + ',')
         if (pointng.predictionData.capital) $(".capital").html('capital: ' + pointng.predictionData.capital + ',')
         if (pointng.predictionData.currency) $(".currency").html('currency: ' + pointng.predictionData.currency + ',')
         if (pointng.predictionData.phone_code) $(".phone_code").html('phone_code: ' + pointng.predictionData.phone_code + ',')
         if (pointng.predictionData.state) $(".state").html('state: ' + pointng.predictionData.state + ',')
-        if (pointng.predictionData.city) $(".city").html('city: ' + pointng.predictionData.city)
+        if (pointng.predictionData.city) $(".city").html('city: ' + pointng.predictionData.city);
+        if (pointng.predictionData.latitude) $(".latitidue").html('latitude: ' + pointng.predictionData.latitude + ',')
+        if (pointng.predictionData.longitude) $(".longitude").html('longitude: ' + pointng.predictionData.longitude);
+        
         console.log(pointng.predictionData)
         $( "#close" ).click(function() {
             $("#modal").removeClass('is-active');
@@ -311,7 +316,7 @@ var pointngLocate = function() {
                 $("#tryThis").removeClass('is-loading');
                 $("#modal").addClass('is-active');
                 if (prediction.continent) $("#continent").html('Continent: ' + prediction.continent)
-                if (prediction.sub_continent) $("#sub_continent").html('Sub continent: ' + prediction.sub_continent)
+                if (prediction.sub_region) $("#sub_region").html('Sub continent: ' + prediction.sub_region)
                 if (prediction.country) $("#country").html('Country: ' + prediction.country)
                 if (prediction.iso2) $("#iso2").html('ISO2: ' + prediction.iso2)
                 if (prediction.capital) $("#capital").html('Capital: ' + prediction.capital)
@@ -320,25 +325,35 @@ var pointngLocate = function() {
                 if (prediction.state) $("#state").html('State: ' + prediction.state)
                 if (prediction.city) $("#city").html('City: ' + prediction.city)
 
-                if (pointng.predictionData.continent) $(".continent").html('')
-                if (pointng.predictionData.sub_continent) $(".sub_continent").html('')
-                if (pointng.predictionData.country) $(".country").html('')
-                if (pointng.predictionData.iso2) $(".iso2").html('')
-                if (pointng.predictionData.capital) $(".capital").html('')
-                if (pointng.predictionData.currency) $(".currency").html('')
-                if (pointng.predictionData.phone_code) $(".phone_code").html('')
-                if (pointng.predictionData.state) $(".state").html('')
-                if (pointng.predictionData.city) $(".city").html('')
- 
+                // if (pointng.predictionData.continent) $(".continent").html('')
+                // if (pointng.predictionData.continent_code) $(".continent_code").html('')
+                // if (pointng.predictionData.sub_continent) $(".sub_continent").html('')
+                // if (pointng.predictionData.country) $(".country").html('')
+                // if (pointng.predictionData.iso2) $(".iso2").html('')
+                // if (pointng.predictionData.iso3) $(".iso3").html('')
+                // if (pointng.predictionData.timezone) $(".timezone").html('')
+                // if (pointng.predictionData.capital) $(".capital").html('')
+                // if (pointng.predictionData.currency) $(".currency").html('')
+                // if (pointng.predictionData.phone_code) $(".phone_code").html('')
+                // if (pointng.predictionData.state) $(".state").html('')
+                // if (pointng.predictionData.city) $(".city").html('')
+                // if (pointng.predictionData.latitude) $(".latitude").html('')
+                // if (pointng.predictionData.longitude) $(".longitude").html('')
+        
                 if (pointng.predictionData.continent) $(".continent").html('continent: ' + pointng.predictionData.continent + ',')
-                if (pointng.predictionData.sub_continent) $(".sub_continent").html('sub_continent: ' + pointng.predictionData.sub_continent + ',')
+                if (pointng.predictionData.continent) $(".continent_code").html('continent_code: ' + pointng.predictionData.continent_code + ',')
+                if (pointng.predictionData.sub_region) $(".sub_region").html('sub_continent: ' + pointng.predictionData.sub_region + ',')
                 if (pointng.predictionData.country) $(".country").html('country: ' + pointng.predictionData.country + ',')
                 if (pointng.predictionData.iso2) $(".iso2").html('iso2: ' + pointng.predictionData.iso2 + ',')
+                if (pointng.predictionData.iso2) $(".iso3").html('iso3: ' + pointng.predictionData.iso3 + ',')
+                if (pointng.predictionData.timezone) $(".timezone").html('timezone: ' + pointng.predictionData.timezone + ',')
                 if (pointng.predictionData.capital) $(".capital").html('capital: ' + pointng.predictionData.capital + ',')
                 if (pointng.predictionData.currency) $(".currency").html('currency: ' + pointng.predictionData.currency + ',')
                 if (pointng.predictionData.phone_code) $(".phone_code").html('phone_code: ' + pointng.predictionData.phone_code + ',')
                 if (pointng.predictionData.state) $(".state").html('state: ' + pointng.predictionData.state + ',')
-                if (pointng.predictionData.city) $(".city").html('city: ' + pointng.predictionData.city)
+                if (pointng.predictionData.city) $(".city").html('city: ' + pointng.predictionData.city);
+                if (pointng.predictionData.latitude) $(".latitude").html('latitude: ' + pointng.predictionData.latitude + ',')
+                if (pointng.predictionData.longitude) $(".longitude").html('longitude: ' + pointng.predictionData.longitude);
 
                 $( "#close" ).click(function() {
                   $("#modal").removeClass('is-active');
@@ -355,7 +370,7 @@ var pointngUpdateData = function() {
                 $("#updateData").removeClass('is-loading');
  
                 if (pointng.predictionData.continent) $(".continent").html('continent: ' + pointng.predictionData.continent)
-                if (pointng.predictionData.sub_continent) $(".sub_continent").html('sub_continent: ' + pointng.predictionData.sub_continent)
+                if (pointng.predictionData.sub_region) $(".sub_region").html('sub_continent: ' + pointng.predictionData.sub_region)
                 if (pointng.predictionData.country) $(".country").html('country: ' + pointng.predictionData.country)
                 if (pointng.predictionData.iso2) $(".iso2").html('iso2: ' + pointng.predictionData.iso2)
                 if (pointng.predictionData.capital) $(".capital").html('capital: ' + pointng.predictionData.capital)
@@ -364,26 +379,31 @@ var pointngUpdateData = function() {
                 if (pointng.predictionData.state) $(".state").html('state: ' + pointng.predictionData.state)
                 if (pointng.predictionData.city) $(".city").html('city: ' + pointng.predictionData.city)
 
-                if (pointng.predictionData.continent) $(".continent").html('')
-                if (pointng.predictionData.sub_continent) $(".sub_continent").html('')
-                if (pointng.predictionData.country) $(".country").html('')
-                if (pointng.predictionData.iso2) $(".iso2").html('')
-                if (pointng.predictionData.capital) $(".capital").html('')
-                if (pointng.predictionData.currency) $(".currency").html('')
-                if (pointng.predictionData.phone_code) $(".phone_code").html('')
-                if (pointng.predictionData.state) $(".state").html('')
-                if (pointng.predictionData.city) $(".city").html('')
+                // if (pointng.predictionData.continent) $(".continent").html('')
+                // if (pointng.predictionData.sub_continent) $(".sub_continent").html('')
+                // if (pointng.predictionData.country) $(".country").html('')
+                // if (pointng.predictionData.iso2) $(".iso2").html('')
+                // if (pointng.predictionData.capital) $(".capital").html('')
+                // if (pointng.predictionData.currency) $(".currency").html('')
+                // if (pointng.predictionData.phone_code) $(".phone_code").html('')
+                // if (pointng.predictionData.state) $(".state").html('')
+                // if (pointng.predictionData.city) $(".city").html('')
  
                 if (pointng.predictionData.continent) $(".continent").html('continent: ' + pointng.predictionData.continent + ',')
-                if (pointng.predictionData.sub_continent) $(".sub_continent").html('sub_continent: ' + pointng.predictionData.sub_continent + ',')
+                if (pointng.predictionData.continent) $(".continent_code").html('continent_code: ' + pointng.predictionData.continent_code + ',')
+                if (pointng.predictionData.sub_region) $(".sub_region").html('sub_continent: ' + pointng.predictionData.sub_region + ',')
                 if (pointng.predictionData.country) $(".country").html('country: ' + pointng.predictionData.country + ',')
                 if (pointng.predictionData.iso2) $(".iso2").html('iso2: ' + pointng.predictionData.iso2 + ',')
+                if (pointng.predictionData.iso3) $(".iso3").html('iso3: ' + pointng.predictionData.iso3 + ',')
+                if (pointng.predictionData.timezone) $(".timezone").html('timezone: ' + pointng.predictionData.timezone + ',')
                 if (pointng.predictionData.capital) $(".capital").html('capital: ' + pointng.predictionData.capital + ',')
                 if (pointng.predictionData.currency) $(".currency").html('currency: ' + pointng.predictionData.currency + ',')
                 if (pointng.predictionData.phone_code) $(".phone_code").html('phone_code: ' + pointng.predictionData.phone_code + ',')
                 if (pointng.predictionData.state) $(".state").html('state: ' + pointng.predictionData.state + ',')
-                if (pointng.predictionData.city) $(".city").html('city: ' + pointng.predictionData.city)
-
+                if (pointng.predictionData.city) $(".city").html('city: ' + pointng.predictionData.city);
+                if (pointng.predictionData.latitude) $(".latitude").html('latitude: ' + pointng.predictionData.latitude + ',')
+                if (pointng.predictionData.longitude) $(".longitude").html('longitude: ' + pointng.predictionData.longitude);
+                
 
 
   })

@@ -163,8 +163,8 @@
     <section class="hero is-medium" style="background-color: #fff;">
       <div class="main-box">
         <div class="container">
-    <h1 class="title main-title">Secure GPS Geolocation Detection for Web Developers</h1>
-           <p class="subtitle">Locate your users by GPS in browser without sending their coordinate data to 3rd parties.</p>
+    <h1 class="title main-title">Location Solution for Web Developers</h1>
+           <p class="subtitle">Create location-based websites hassle-free.</p>
         <div class="columns">
        
           <div class="column" style="margin-bottom: 20px;">
@@ -172,12 +172,11 @@
      
       
             <pre class="main-pre">
-<span style="color: yellow">FUNCTION:</span>
+<span style="color: yellow">SCRIPT:</span>
 &lt;script src="https://cdn.pointng.io/pointng-min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
   const pointng = new PointNG({
-    api_key: "api-key",
-    level: 'city'
+    api_key: API_KEY
   });
   pointng.getLocation().then(function(prediction) {
     console.log(pointng.prediction)
@@ -188,17 +187,22 @@
 
           <div class="column" style="margin-bottom: 0px;"">
             <pre class="main-pre">
-<span style="color: yellow">EXAMPLE RESULT:</span>
+<span style="color: yellow">DATA:</span>
 {
-   <span class="continent">continent: Europe,</span>
-   <span class="sub_region">sub_continent: Northern Europe,</span>
-   <span class="country">country: Finland,</span>
-   <span class="iso2">iso2: FI,</span>
-   <span class="capital">capital: Helsinki,</span>
-   <span class="currency">currency: EUR,</span>
-   <span class="phone_code">phone_code: 358,</span>
-   <span class="state">state: Uusimaa,</span>
-   <span class="city">city: Helsinki</span>
+  <span class="continent"></span>
+  <span class="continent_code"></span>
+  <span class="sub_region"></span>
+  <span class="country"></span>
+  <span class="iso2"></span>
+  <span class="iso3"></span>
+  <span class="timezone"></span>
+  <span class="capital"></span>
+  <span class="currency"></span>
+  <span class="phone_code"></span>
+  <span class="state"></span>
+  <span class="city"></span>
+  <span class="latitude"></span>
+  <span class="longitude"></span>
 }
 </pre>
 
@@ -207,7 +211,7 @@
         </div>
         <button id="updateData" class="button is-primary is-large" style="margin-bottom: 1rem;" onclick="tryThis2()" >
           <span>
-              <small>Update with your location</small>
+              <small>Update with GPS data</small>
           </span>
         </button>
           <p class="subtitle is-4" style="margin-top: 60px;">Sign up as a beta tester!</p>
@@ -232,10 +236,10 @@
 
           <div class="main-box">
             <h2 class="title pointng-title">
-              Privacy-First Reverse Geocoding API for JavaScript.
+              Privacy-First Location Detection.
             </h2>
             <h2 class="subtitle main-subtitle">
-              Use reverse geocoding to get continent, country, state, and city names for your website visitors' GPS-geolocation without sending their coordinate-data to anyone over the internet.
+              Use our secure machine learnining based reverse geocoding technology to identify website visitors' location without sending their coordinate-data to anyone over the internet.
             </h2>
             <div class="main-container">
               <div class="bd-focus">
@@ -288,7 +292,7 @@
 
     <section class="section" id="why">
         <div class="container">
-            <h2 class="title pointng-title">Build location-based websites hassle-free</h2>
+            <h2 class="title pointng-title">Features</h2>
             <div class="pointng-container">
                 <div class="block">
                     <h4 class="subtitle is-4">Hyper Secure: coordinate data never leaves the client</h4>
