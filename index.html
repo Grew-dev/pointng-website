@@ -5,23 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>pointNG</title>
-    <meta name="description" content="Get user location by GPS securely in Browser with pointNG plugin. A privacy-first alternative for building location-based websites."/>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <meta name="description" content="The Future of Location Identification. Ethical and privcay first way to create location based web services. Location detection without sharing data with 3rd parties."/>
     <link rel="icon" href="https://cdn.pointng.io/pointng_widget.svg">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-    <link rel="stylesheet" href="./css/styles.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
-
-  <!-- Cookie banner -->  
-    <script type="text/javascript">
-      var cpm = {};
-      (function(h,u,b){
-      var d=h.getElementsByTagName("script")[0],e=h.createElement("script");
-      e.async=true;e.src='https://cookiehub.net/c2/80eabb8d.js';
-      e.onload=function(){u.cookiehub.load(b);}
-      d.parentNode.insertBefore(e,d);
-      })(document,window,cpm);
-      </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" integrity="sha512-+WF6UMXHki/uCy0vATJzyA9EmAcohIQuwpNz0qEO+5UeE5ibPejMRdFuARSrl1trs3skqie0rY/gNiolfaef5w==" crossorigin="anonymous" />
+    <link href="output.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
 
    <!-- Analytics setup --> 
    <script>window.sa_event=window.sa_event||function(){a=[].slice.call(arguments);sa_event.q?sa_event.q.push(a):sa_event.q=[a]};</script>
@@ -32,31 +21,8 @@
       MIXPANEL_CUSTOM_LIB_URL:"file:"===c.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";d=c.getElementsByTagName("script")[0];d.parentNode.insertBefore(b,d)}})(document,window.mixpanel||[]);
       mixpanel.init("93cf0905296fe417c8b612dc8bcd6f71", {batch_requests: true})</script>
 
-    <script>
-      (function(){
 
-        window.ldfdr = window.ldfdr || {};
-        (function(d, s, ss, fs){
-          fs = d.getElementsByTagName(s)[0];
-
-          function ce(src){
-            var cs  = d.createElement(s);
-            cs.src = src;
-            setTimeout(function(){fs.parentNode.insertBefore(cs,fs)}, 1);
-          }
-
-          ce(ss);
-        })(document, 'script', 'https://sc.lfeeder.com/lftracker_v1_YEgkB8lmyAv7ep3Z.js');
-      })();
-    </script>
-
-    <!-- Start Pixtu Snippet -->
-    <script>
-      !function(e,t,n,p,i,a,s,u,c){e[i]||((s=e[i]=function(){s.process?s.process.apply(s,arguments):s.queue.push(arguments)}).queue=[],s.t=1*new Date,(u=t.createElement(n)).async=1,u.src="https://cdn.pixtu.io/app.js?t="+864e5*Math.ceil(new Date/864e5),(c=t.getElementsByTagName(n)[0]).parentNode.insertBefore(u,c))}(window,document,"script",0,"pixtu"),pixtu("init","fb8cc2cd-187d-4835-a397-3cb83798d2pp"),pixtu("event","pageload");
-      </script>
-      <!-- End Pixtu Pixel Snippet -->
-
-            <!-- Global site tag (gtag.js) - Google Analytics -->
+      <!-- Global site tag (gtag.js) - Google Analytics -->
 
       <script>
         window.dataLayer = window.dataLayer || [];
@@ -65,489 +31,396 @@
 
         gtag('config', 'G-J2GT5VYTBK');
       </script>
-<script src="https://www.googleoptimize.com/optimize.js?id=OPT-T7MX54R"></script>
-        </head>
-      <body>
+      <!-- Cookie banner -->  
+      <script type="text/javascript">
+        var cpm = {};
+        (function(h,u,b){
+        var d=h.getElementsByTagName("script")[0],e=h.createElement("script");
+        e.async=true;e.src='https://cookiehub.net/c2/80eabb8d.js';
+        e.onload=function(){u.cookiehub.load(b);}
+        d.parentNode.insertBefore(e,d);
+        })(document,window,cpm);
+        </script>
 
-    <!-- Modal start -->
-    <div class="modal" id="modal">
-      <div class="modal-background"></div>
-      <div class="modal-card">
-        <section class="modal-card-body">
-          <h4 class="subtitle">Your predicted location:</h4>
-          <p id="continent"></p>
-          <p id="sub_region"></p>
-          <p id="country"></p>
-          <p id="iso2"></p>
-          <p id="capital"></p>
-          <p id="currency"></p>
-          <p id="phone_code"></p>
-          <p id="phone_code"></p>
-          <p id="state"></p>
-          <p id="city"></p>
-        </section>
-        <footer class="modal-card-foot">
-          <button class="button" id="close">Close</button>
-        </footer>
+    <!-- Analytics setup --> 
+  </head>
+  <body>
+
+    <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+      <div class="relative flex items-center justify-between">
+        <a href="/" aria-label="Company" title="Company" class="inline-flex items-center">
+          <img src="https://cdn.pointng.io/pointng_widget.svg">
+          <span class="ml-2 text-xl font-bold tracking-wide text-gray-800">pointNG</span>
+        </a>
+        <ul class="flex items-center hidden space-x-8 lg:flex">
+          <li><a href="#features" aria-label="Our product" title="Our product" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Features</a></li>
+          <!-- <li><a href="/" aria-label="Product pricing" title="Product pricing" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Pricing</a></li> -->
+          <li><a href="https://grew.dev/about-us" target="_blank" aria-label="About us" title="About us" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">About us</a></li>
+          <li><a href="https://globalreactioncompany.gitbook.io/pointng/" aria-label="Documentation" target="_blank" title="Documentation" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Documentation</a></li>
+          <li><a href="https://developer.pointng.io" aria-label="Developers" title="Developers" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Developers</a></li>
+          <li>
+            <a
+              href="/"
+              class="bg-blue-400 inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+              aria-label="Sign up"
+              title="Sign up"
+            >
+              Sign up
+            </a>
+          </li>
+        </ul>
+        <!-- Mobile menu -->
+        <div class="lg:hidden">
+          <!-- <button aria-label="Open Menu" title="Open Menu" class="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50">
+            <svg class="w-5 text-gray-600" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"></path>
+              <path fill="currentColor" d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"></path>
+              <path fill="currentColor" d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"></path>
+            </svg>
+          </button> -->
+          <!-- Mobile menu dropdown 
+          <div class="absolute top-0 left-0 w-full">
+            <div class="p-5 bg-white border rounded shadow-sm">
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <a href="/" aria-label="Company" title="Company" class="inline-flex items-center">
+                    <svg class="w-8 text-deep-purple-accent-400" viewBox="0 0 24 24" stroke-linejoin="round" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" stroke="currentColor" fill="none">
+                      <rect x="3" y="1" width="7" height="12"></rect>
+                      <rect x="3" y="17" width="7" height="6"></rect>
+                      <rect x="14" y="1" width="7" height="6"></rect>
+                      <rect x="14" y="11" width="7" height="12"></rect>
+                    </svg>
+                    <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">Company</span>
+                  </a>
+                </div>
+                <div>
+                  <button aria-label="Close Menu" title="Close Menu" class="p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                    <svg class="w-5 text-gray-600" viewBox="0 0 24 24">
+                      <path
+                        fill="currentColor"
+                        d="M19.7,4.3c-0.4-0.4-1-0.4-1.4,0L12,10.6L5.7,4.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l6.3,6.3l-6.3,6.3 c-0.4,0.4-0.4,1,0,1.4C4.5,19.9,4.7,20,5,20s0.5-0.1,0.7-0.3l6.3-6.3l6.3,6.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L13.4,12l6.3-6.3C20.1,5.3,20.1,4.7,19.7,4.3z"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <nav>
+                <ul class="space-y-4">
+                  <li><a href="/" aria-label="Our product" title="Our product" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Product</a></li>
+                  <li><a href="/" aria-label="Our product" title="Our product" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Features</a></li>
+                  <li><a href="/" aria-label="Product pricing" title="Product pricing" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Pricing</a></li>
+                  <li><a href="/" aria-label="About us" title="About us" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">About us</a></li>
+                  <li>
+                    <a
+                      href="/"
+                      class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                      aria-label="Sign up"
+                      title="Sign up"
+                    >
+                      Sign up
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          -->
+        </div>
       </div>
     </div>
-    <!-- Modal end -->
 
-    <!--Pixtu Modal -->
-
-    <!-- The Modal -->
-    <div id="pixtu-modal" class="pixtu-modal">
-
-      <!-- Modal content -->
-      <div class="pixtu-modal-content">
-        <span class="pixtu-close" onclick="closePixtu()">&times;</span>
-
-        <h2 class="pixtu-modal-title"><span id="pixtu-title"></span></h2>
-        <p><span id="pixtu-description"></span></p>
-        <p><span id="pixtu-html"></span></p>
-        <!-- <p><a id="pixtu-href" href="" target="_blank"><span id="pixtu-link"></span> &raquo;</a></p> -->
-      </div>
-    </div>
-   <!-- Pixtu Modal End --> 
-
-
-    <!-- Navbar start -->
-    <nav class="navbar">
-        <div class="container">
-          <div class="navbar-brand">
-            <a class="navbar-item" href="/">
-              <img src="https://cdn.pointng.io/pointng_widget.svg"><span style="margin-left: 10px;"><b>BETA</b></span>
-            </a>
-            <span class="navbar-burger burger" data-target="navbarMenuHeroA" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
-          </div>
-          <div id="navbarMenuHeroA" class="navbar-menu">
-            <div class="navbar-end">
-              <a id="nav-why" class="navbar-item" href="#why">
-                Why use pointNG
-              </a>
-              <a id="nav-examples" class="navbar-item" href="https://globalreactioncompany.gitbook.io/pointng/examples" target="_blank">
-                Examples
-              </a>
-              <a id="nav-documentation" class="navbar-item" href="https://globalreactioncompany.gitbook.io/pointng/" target="_blank">
-                Documentation
-              </a>
-              <a id="nav-contact" class="navbar-item" href="#footer">
-                Contact us
-              </a>
-              <span class="navbar-item">
-                <a id="nav-signup" class="button is-primary" id="nav-signup" href="https://app.pointng.io/register">
-                  <span>Sign up</span>
-                </a>
-              </span>
-              <span class="navbar-item">
-                <a id="nav-login" class="button is-primary is-inverted" href="https://app.pointng.io/login">
-                  <span class="icon">
-                    <i class="fas fa-sign-in-alt"></i>
-                    
-                  </span>
-                  <span>Log in</span>
-                </a>
-              </span>
-
-            </div>
-          </div>
-        </div>
-      </nav>      
-    <!-- Navbar end -->
-  
-    <!-- <section class="hero is-medium" style="background: linear-gradient(to bottom right,#bfc0e43b,#8baae482) no-repeat;"> -->
-      <section class="hero is-medium" style="background: #fff;">
-      <div class="main-box">
-        <div style="max-width: 800px;
-        margin: 0 auto;
-        margin-bottom: 1.5rem;">
-          
-            <h1 class="title main-title">Privacy-Friendly Location Detection Developer Tool</h1>
-              <p class="subtitle">Does not track or send sensitive coordinate-data to anyone 🔒</p>
-              <p class="subtitle">Uses machine learning for secure location detection 🛡️</p>
-              <p class="subtitle"><b><span class="underline-magical">Start building location-aware websites without privacy-hassle</span> 🚀</b></p>
-          </div>
-          <div class="container">
-           <div class="columns">
-
-            <div class="main-phone column">
-
-              <pre class="phone main-pre">
-           
-<span style="color: yellow">SCRIPT:</span>
-&lt;script src="https://cdn.pointng.io/pointng-min.js"&gt;&lt;/script&gt;
-&lt;script&gt;
-  const pointng = new PointNG({
-    api_key: API_KEY
-  });
-  pointng.getLocation().then(function(prediction) {
-    console.log(pointng.prediction)
-  })
-&lt;/script&gt;</pre>
-          
-          </div>
-
-          <div class="main-phone column">
-
-            <pre class="phone main-pre">
-              
-<span style="color: yellow">YOUR LOCATION DATA:</span>
-{
-  <span class="continent"></span>
-  <span class="continent_code"></span>
-  <span class="sub_region"></span>
-  <span class="country"></span>
-  <span class="iso2"></span>
-  <span class="iso3"></span>
-  <span class="timezone"></span>
-  <span class="capital"></span>
-  <span class="currency"></span>
-  <span class="phone_code"></span>
-  <span class="state"></span>
-  <span class="city"></span>
-  <span class="latitude"></span>
-  <span class="longitude"></span>
-}
-</pre>
-
-          </div>
-          
-        </div>
-        <p class="subtitle">Update the data based on your GPS location:</p>
-        <button id="updateData" class="button is-primary is-large" style="margin-bottom: 1rem; margin-top: 1rem;" onclick="tryThis2()" >
-          <span>
-              <small> <strong>Update</strong></small>
-          </span>
-        </button>
-          <p class="subtitle is-4" style="margin-top: 60px;">Sign up as a beta tester!</p>
-            <a id="get-started" class="button is-primary is-large" style="margin-bottom: 10px;" target="_blank" href="https://app.pointng.io/register">
-              <span>
-                <strong>Get started</strong>
-              </span>
-            </a>
-            <a id="view-docs" class="button is-light is-large" style="margin-bottom: 60px;" target="_blank" href="https://app.gitbook.com/@globalreactioncompany/s/pointng/">
-              <span>
-                <strong>View docs</strong>
-              </span>
-            </a>
-          </div>
-        </div>
-        </div>
-      </section> 
-
-    <section class="section" id="why">
-        <div class="container">
-            <h2 class="title pointng-title">Private Alternative for Reverse Geocoding</h2>
-            <div class="pointng-container">
-                <div class="block">
-                    <h4 class="subtitle is-4">GDPR / CCPA friendly</h4>
-                    <p>pointNG uses a secure machine learning reverse geocoding technology directly in browser to identify website visitors' location without sending their GPS coordinate-data to anyone.</p> 
-                     <a id="details" href="https://globalreactioncompany.gitbook.io/pointng/basics" target="_blank">
-                        <strong>&rarr; How it works in detail</strong> 
-                        </a>
-                </div>
-            </div>
-            <div class="pointng-container">
-                <div class="block">
-                    <h4 class="subtitle is-4">Easy To Use Functions</h4>
-                    <p>pointNG wraps IP-address and GPS-coordinate based location detection to simple functions. Just plug pointNG in and get started immediately.
-                    </p> 
-                     <a id="documentation" href="https://globalreactioncompany.gitbook.io/pointng/functions" target="_blank">
-                        <strong>&rarr; Check out the documentation and get started</strong> 
-                        </a>
-                </div>
-            </div>
-            <div class="pointng-container">
-                <div class="block">
-                    <h4 class="subtitle is-4">Join the Future: empower the user</h4>
-                    <p>pointNG introduces a human-centric, non-creepy approach to developing location-aware digital services. Our widget gives the user the power to determine the level of accuracy in location identification.</p> 
-                     <a id="read-about-widget" href="https://globalreactioncompany.gitbook.io/pointng/pointng-widget" target="_blank">
-                        <strong>&rarr; Read more about the widget</strong> 
-                        </a>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="section" style="background-color: #fff;" id="quick-test">
-
-        <div class="container" style="margin-bottom: 3rem; max-width: 800px;">
-          <h2 class="title pointng-title">Quick start</h2>
-          <div class="column">
-
-          <div class="block">
-            <!-- <h4 class="subtitle is-4">Test on your local site</h4> -->
-            <p style="margin-bottom: 2rem;">For quick local tests or demos, paste this code snippet to your website's body (use only in development environment):</p> 
-            <pre class="sub-pre">&lt;script src="https://cdn.pointng.io/pointng.js?v=beta">&lt;/script&gt;
-&lt;script&gt;
-  const pointng = new PointNG({
-    api_key: "beta",
-    level: 'city'
-  });
-  pointng.getLocation().then(function(prediction) {
-    console.log(pointng.prediction)
-  })
-&lt;/script&gt;</pre>
-              
-        </div>
-        
+    <header class="relative flex items-center justify-center mb-12 overflow-hidden">
+      <div class="items-center justify-center z-30 p-5 text-2xl text-white relative w-auto min-w-full min-h-full max-w-none bg-deep-purple-900 bg-opacity-70">
+        <div class="flex flex-col items-center justify-center px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:pt-32 md:px-0">
+          <div class="flex flex-col items-center max-w-2xl md:px-8">
+            <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
+              <h1 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-white-900 sm:text-4xl md:mx-auto">
+                <span class="relative inline-block">
+                  <svg viewBox="0 0 52 24" fill="currentColor" class="absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 text-blue-gray-100 lg:w-32 lg:-ml-28 lg:-mt-10 sm:block">
+                    <defs>
+                      <pattern id="192913ce-1f29-4abd-b545-0fbccfd2b0ec" x="0" y="0" width=".135" height=".30">
+                        <circle cx="1" cy="1" r=".7"></circle>
+                      </pattern>
+                    </defs>
+                    <rect fill="url(#192913ce-1f29-4abd-b545-0fbccfd2b0ec)" width="52" height="24"></rect>
+                  </svg>
+                  <span class="relative">The</span>
+                </span>
+                Future of Location Identification
+              </h1>
+              <p class="text-base text-white-700 md:text-lg">Ethical and privcay first way to create location based web services 🚀</p>
             
+            </div>
+            <form class="w-full mb-16" method="POST" target="_blank" action="https://dev.us7.list-manage.com/subscribe/post?u=71500ff84b0a3743f7dd57cbd&amp;id=df43edeefa">
+              <label for="email" class="inline-block mb-2 font-semibold">Join waiting list</label>
+              <input id="email" autocomplete="email" name="EMAIL" required="" aria-required="true" placeholder="Your email" type="email" maxlength="150" class="flex-grow w-full h-12 px-4 mb-4 transition duration-200 text-gray-900 bg-white border border-gray-400 rounded shadow-sm appearance-none focus:outline-none focus:shadow-outline focus:border-indigo-500" style="appearance: none;">
+              <button type="submit" class="px-2 h-12 inline-flex items-center justify-center    w-full mb-2 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-indigo-600 hover:bg-indigo-700 focus:shadow-outline focus:outline-none">Subscribe</button>
+            </form>
+          </div>
         </div>
-        </div>
-    </section> 
+      </div>
+      <video autoplay loop muted class="absolute z-10 w-auto min-w-full min-h-full max-w-none">
+        <source src="video/DJI_0002_4.mp4" type="video/mp4" />Your browser does not support the video tag.
+      </video>
+    </header>
 
-
-    <section class="section" id="examples" style="margin-bottom: 80px">
-      <div class="container">
-          <h2 class="title pointng-title">Use case examples</h2>
-          <div class="tile is-ancestor">
-            <div class="tile is-parent">
-              <div class="tile is-child box">
-              <div class="columns is-vcentered">
-                <div class="column">
-                    <figure class="image is-120x71">
-                        <img src="./img/secure_local_weather.png" style="border-radius: 5px;box-shadow: 0 2px 6px 0 rgba(0,0,0,.4);">
-                    </figure>
-                </div>
-                <div class="column">
-                    <header class="bd-index-header bd-is-left">
-                      <h3 class="title is-3">
-                          Secure Local Weather App
-                      </h3>
-                      <p class="subtitle is-4">
-                        Privacy-friendly local weather forecasts. No tracking or transferring of coordinate-data.
-                      </p>
-
-                        <a id="secure-weather" class="button is-primary is-large" style="margin-bottom: 10px;" target="_blank" href="https://gifted-davinci-a1defb.netlify.app">
-                          <span>
-                            <strong>Try the web prototype</strong>
-                          </span>
-                        </a>
-
-                    </header>
-                </div>
-                
+    <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20" id="features">
+      <div class="max-w-xl mb-10 sm:mx-auto">
+        <h2 class="font-sans text-3xl font-bold leading-tight tracking-tight text-gray-900 sm:text-4xl sm:text-center">
+          pointNG is a client-side location detection technology 
+          <span class="inline-block text-deep-purple-accent-400">that doesn't send coordinate data over the internet to third parties</span>
+        </h2>
+      </div>
+      <div class="grid gap-12 row-gap-8 lg:grid-cols-3">
+        <div class="flex">
+          <div class="mr-4">
+            <div class="flex items-center justify-center w-10 h-10 mb-3 rounded-full bg-indigo-50">
+              <svg class="w-8 h-8 text-deep-purple-accent-400" stroke="currentColor" viewBox="0 0 52 52">
+                <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
+              </svg>
             </div>
           </div>
-      
+          <div>
+            <h6 class="mb-2 font-semibold leading-5">GDPR & CCPA friendly</h6>
+            <p class="text-sm text-gray-900">
+              pointNG uses a secure machine learning reverse geocoding technology directly in browser to identify website visitors' location without sending their GPS coordinate-data to anyone.
+            </p>
+          </div>
+        </div>
+        <div class="flex">
+          <div class="mr-4">
+            <div class="flex items-center justify-center w-10 h-10 mb-3 rounded-full bg-indigo-50">
+              <svg class="w-8 h-8 text-deep-purple-accent-400" stroke="currentColor" viewBox="0 0 52 52">
+                <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
+              </svg>
+            </div>
+          </div>
+          <div>
+            <h6 class="mb-2 font-semibold leading-5">Easy to use functions</h6>
+            <p class="text-sm text-gray-900">
+              pointNG wraps IP-address and GPS-coordinate based location detection to simple functions. Just plug pointNG in and get started immediately.
+            </p>
+          </div>
+        </div>
+        <div class="flex">
+          <div class="mr-4">
+            <div class="flex items-center justify-center w-10 h-10 mb-3 rounded-full bg-indigo-50">
+              <svg class="w-8 h-8 text-deep-purple-accent-400" stroke="currentColor" viewBox="0 0 52 52">
+                <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
+              </svg>
+            </div>
+          </div>
+          <div>
+            <h6 class="mb-2 font-semibold leading-5">Join the future: empower the user</h6>
+            <p class="text-sm text-gray-900">
+              pointNG introduces a human-centric, non-creepy approach to developing location-aware digital services. Our widget gives the user the power to determine the level of accuracy in location identification.
+            </p>
+          </div>
         </div>
       </div>
-            <div class="tile is-ancestor">
-              <div class="tile is-parent is-8">
-                <div class="tile is-child box">
-                  <figure class="image is-120x71" style="margin-bottom:20px;">
-                      <img src="./img/welcome_to_helsinki.4deafcc7.jpeg" style="border-radius: 5px;box-shadow: 0 2px 6px 0 rgba(0,0,0,.4);">
-                  </figure>
+    </div>
 
-                      <div class="block">
-                          <h2 class="rest-example-title"><strong>Content personalization</strong></h2>
-                          <p>Personalize your website's images and copy texts based on your users' location</p>
-                          <a id="content-personalization-example" href="https://codepen.io/pointng/pen/yLJBPja" target="_blank">
-                              &rarr; Check the code in Codepen
-                            </a>
-                      </div>
-
-                </div>
+    <header class="relative flex items-center justify-center mb-12 overflow-hidden">
+      <div class="items-center justify-center z-30 p-5 text-2xl text-white relative w-auto min-w-full min-h-full max-w-none bg-purple-900 bg-opacity-70">
+        <div class="relative">
+          <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+            <div class="flex flex-col items-center justify-between xl:flex-row">
+              <div class="w-full max-w-xl mb-12 xl:mb-0 xl:pr-16 xl:w-7/12">
+                <h1 class="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
+                  Built for <br class="hidden md:block" />
+                  <span class="text-teal-accent-400">privacy-first companies</span>
+                </h1>
+                <p class="max-w-xl mb-4 text-base text-gray-400 md:text-lg">
+                  Request early access and we will help you to start building location-aware web services without privacy hassle.
+                </p>
+                <a href="/" aria-label="" class="inline-flex items-center font-semibold tracking-wider transition-colors duration-200 text-teal-accent-400 hover:text-teal-accent-700">
+                  Learn more
+                  <svg class="inline-block w-3 ml-2" fill="currentColor" viewBox="0 0 12 12">
+                    <path d="M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z"></path>
+                  </svg>
+                </a>
               </div>
-              <div class="tile is-4 is-vertical is-parent">
-                <div class="tile is-child box">
-                  <h2 class="rest-example-title"><strong>HTML starter template</strong></h2>
-                  <p>Simple hello world HTML template for pointNG</p>
-                  <a id="html-starter-example" href="https://codesandbox.io/s/pointng-template-hmow2 target="_blank"">
-                      &rarr; Check the code in Codesandbox
-                    </a>
-                </div>
-                <div class="tile is-child box">
-                  <h2 class="rest-example-title"><strong>Form prefill</strong></h2>
-                  <p>
-                    Improve user experience by giving the user an option to fill phone number prefix and 
-                    location fields automatically.
-                  </p>
-                  <a id="form-prefill-example" href="https://codesandbox.io/s/pointng-form-prefill-kizj6" target="_blank">
-                      &rarr; Check the code in Codesandbox
-                    </a>
-                </div>
-                <div class="tile is-child box">
-                  <h2 class="rest-example-title"><strong>Location targeted pop-up</strong></h2>
-                  <p>Simple pop-up that is personalized based on location.</p>
-                  <a href="https://codesandbox.io/s/pointng-popup-example-kv7wi" target="_blank">
-                      &rarr; Check the code in Codesandbox
-                    </a>
-                </div>
-                <div class="tile is-child box">
-                  <h2 class="rest-example-title"><strong>Vue.js starter template</strong></h2>
-                  <a id="vuejs-starter-example" href="https://codesandbox.io/s/pointng-vuejs-example-9jehv" target="_blank">
-                      &rarr; Check the code in Codesandbox
-                    </a>
-                </div>
-              </div>
-            </div>
-      </div>
-  </section>
-  <section class="section" style="background-color: #fff;" id="quick-test">
-
-    <div class="container" style="margin-bottom: 3rem; max-width: 800px;">
-      <h2 class="title pointng-title">Feedback</h2>
-      <div class="column">
-    <div class="block">
-
-      <p style="margin-bottom: 2rem;">To give feedback or chat with the makers about anything, join our Discord Server, or use the feedback form.</p> 
-      <div style="text-align: center;">
-      <a id="discord" class="button is-primary is-large" style="margin-bottom: 30px;" href="https://discord.gg/tjyaZDY" target="_blank">
-        <span>
-          <strong>Discord</strong>
-          <svg class="svg-inline--fa fa-discord fa-w-14" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="discord" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M297.216 243.2c0 15.616-11.52 28.416-26.112 28.416-14.336 0-26.112-12.8-26.112-28.416s11.52-28.416 26.112-28.416c14.592 0 26.112 12.8 26.112 28.416zm-119.552-28.416c-14.592 0-26.112 12.8-26.112 28.416s11.776 28.416 26.112 28.416c14.592 0 26.112-12.8 26.112-28.416.256-15.616-11.52-28.416-26.112-28.416zM448 52.736V512c-64.494-56.994-43.868-38.128-118.784-107.776l13.568 47.36H52.48C23.552 451.584 0 428.032 0 398.848V52.736C0 23.552 23.552 0 52.48 0h343.04C424.448 0 448 23.552 448 52.736zm-72.96 242.688c0-82.432-36.864-149.248-36.864-149.248-36.864-27.648-71.936-26.88-71.936-26.88l-3.584 4.096c43.52 13.312 63.744 32.512 63.744 32.512-60.811-33.329-132.244-33.335-191.232-7.424-9.472 4.352-15.104 7.424-15.104 7.424s21.248-20.224 67.328-33.536l-2.56-3.072s-35.072-.768-71.936 26.88c0 0-36.864 66.816-36.864 149.248 0 0 21.504 37.12 78.08 38.912 0 0 9.472-11.52 17.152-21.248-32.512-9.728-44.8-30.208-44.8-30.208 3.766 2.636 9.976 6.053 10.496 6.4 43.21 24.198 104.588 32.126 159.744 8.96 8.96-3.328 18.944-8.192 29.44-15.104 0 0-12.8 20.992-46.336 30.464 7.68 9.728 16.896 20.736 16.896 20.736 56.576-1.792 78.336-38.912 78.336-38.912z"></path></svg>
-        </span>
-      </a>
-      <a id="discord" class="button is-primary is-large" style="margin-bottom: 10px;" href="https://grew.dev/pointng-feedback/" target="_blank">
-        <span>
-          <strong>Feedback form</strong>
-          🤗
-        </span>
-      </a>
-    </div>
-  </div>
-        
-    </div>
-    </div>
-</section> 
-
-    <section class="bd-easy section is-medium">
-      <div class="container">
-          <div class="columns is-vcentered">
-              <div class="column" style="text-align: center;">
-                  <header class="bd-index-header bd-is-left">
-                  <h3 class="title is-3">
-                    Sign up to get your free API key
+              <div class="w-full max-w-xl xl:px-8 xl:w-5/12">
+                <div class="bg-white rounded shadow-2xl p-7 sm:p-10">
+                  <h3 class="mb-4 text-gray-900 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
+                    Request Early Access
                   </h3>
- 
-                  <nav class="intro-buttons">
-                    <a id="get-started-for-free" class="button is-primary is-large" style="margin-bottom: 10px;" target="_blank" href="https://app.pointng.io/register">
-                      <span>
-                        <strong>Get started for free</strong>
-                      </span>
-                    </a>
-
-                  </nav>
-                  <small><em>pointNG is currently in BETA.</em></small>
-                  </header>
-              </div>
-              <div class="column">
-
-                      <img src="./img/snippet2.png">
-   
-              </div>
-          </div>
-      </div>
-  </section>
-
-    <footer class="footer footer-color" id="footer">
-        <section class="section">
-            <div class="container">
-                <div class="content">
-                    <div class="columns">
-                        <div class="column">
-                            <div>
-                                <p class="footer-heading"><strong>© PointNG</strong></p>
-                                <p>Created by <a id="twitter-ihmissuti" href="https://twitter.com/ihmissuti">@ihmissuti</a>, <a id="twitter-aleksi" href="https://twitter.com/aleksimmonen">@aleksimmonen</a> and <a id="twitter-jere" href="https://twitter.com/Jmeriluoto">@Jmeriluoto</a>.</p>
-                                <p>100% independent and self-funded.</p>
-                
-                                <p>
-                                  Coming from EU
-                                  <span>
-                                      <img style="height: 20px;" src="./img/800px-Flag_of_Europe.svg.png"> 
-                                  </span>
-                                  </p>
-                            </div>
-                            <br>
-                            <a href="https://www.producthunt.com/posts/pointng?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-pointng" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=271566&theme=light" alt="pointNG - Privacy Protected Location Personalization in JavaScript | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
-                          </div>
-                          
-                            <div class="column">
-                                <div class="block">
-                                     <a id="footer-documentation" href="https://globalreactioncompany.gitbook.io/pointng" target="_blank">Documentation</a>
-                                </div>           
-                                <div class="block">
-                                    <a id="footer-terms"href="https://app.pointng.io/terms" target="_blank">Terms of Service</a>
-                                </div>
-                                
-                                <div class="block">
-                                    <a id="footer-privacy" href="https://github.com/Grew-dev/grew-privacy-policy/" target="_blank">Privacy Policy</a>
-                                </div>
-                                
-                               
-                              
-                         
-                            </div>
-                            <div class="column">
-                              <div class="field">
-                                
-                                <form id="submit-email" name="form" novalidate="" action="https://dev.us7.list-manage.com/subscribe/post?u=71500ff84b0a3743f7dd57cbd&amp;id=df43edeefa" method="POST" onsubmit="return confSubscription();">
-                                  <p>Please leave your email to get <b>pointNG</b> related news.</p>
-                                  <label class="label" style="opacity: 0.8;">Email</label>
-                                  <div class="control" style="margin-bottom: 20px">
-                                        <input type="email" name="EMAIL" class="input" pattern="/^[a-zA-Z0-9+-_]+(\.[_a-zA-Z0-9+]+)*@[a-zA-Z0-9+-_]+(\.[a-zA-Z0-9+-_]+)*(\.[a-zA-Z]+)$/" placeholder="your@email.com" aria-required="true" required="required">
-                                  </div>
-                                        <button type="submit" class="button is-primary"><span>SUBMIT</span></button>
-                                </form>
-                              </div>
-                            </div>
-                            <div class="column">
-                                <div class="field">
-                                    <div class="field-body">
-                                        <div class="field has-addons">
-                                          <p class="control">
-                                              <a id="footer-twitter" href="https://twitter.com/Grewdev" target="_blank" class="button">
-                                                  <!-- <span class="icon"><i aria-hidden="true" class="fa fa-twitter"></i></span><span>Twitter</span> -->
-                                                  <i class="fab fa-twitter" style="margin-right: 5px;"></i>
-                                              Twitter
-                                              </a>
-                                          </p>
-                                          <p class="control">
-                                              <a id="footer-linkedin" href="https://www.linkedin.com/company/42470713" target="_blank" class="button is-linkedin">
-                                                  <!-- <span class="icon"><i aria-hidden="true" class="fa fa-linkedin"></i></span><span>LinkedIn</span> -->
-                                                  <i class="fab fa-linkedin-in" style="margin-right: 5px;"></i>
-                                                  LinkedIn
-                                              </a>
-                                          </p>
-                                          <p class="control">
-                                            <a id="footer-github" href="https://github.com/Grew-dev" target="_blank" class="button is-github">
-                                                <!-- <span class="icon"><i aria-hidden="true" class="fa fa-github"></i></span><span>Github</span> -->
-                                                <!-- <i class="fa fa-github-in" style="margin-right: 5px;"></i> -->
-                                                <i class="fab fa-github" style="margin-right: 5px;"></i>
-                                                Github
-                                            </a>
-                                        </p>
-                                      </div>
-                                    </div>
-                                </div>
-                                
-                            
-                            <a id="footer-grew" href="https://grew.dev" target="_blannk">Created by Grew</a>
-
-            
-                        </div>
-
+                  <form method="POST" target="_blank" action="https://dev.us7.list-manage.com/subscribe/post?u=71500ff84b0a3743f7dd57cbd&amp;id=df43edeefa">
+                    <div class="mb-1 sm:mb-2">
+                      <label for="FNAME" class="inline-block mb-1 font-medium">First Name</label>
+                      <input
+                        placeholder="First Name"
+                        required=""
+                        type="text"
+                        class="flex-grow w-full h-12 px-4 mb-2 transition duration-200 text-gray-900 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                        id="firstName"
+                        name="FNAME"
+                        autocomplete="FNAME"
+                      />
                     </div>
+                    <div class="mb-1 sm:mb-2">
+                      <label for="LNAME" class="inline-block mb-1 font-medium">Last Name</label>
+                      <input
+                        placeholder="Last Name"
+                        required=""
+                        type="text"
+                        class="flex-grow w-full h-12 px-4 mb-2 transition duration-200 text-gray-900 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                        id="lastName"
+                        name="LNAME"
+                        autocomplete="LNAME"
+                      />
+                    </div>
+                    <div class="mb-1 sm:mb-2">
+                      <label for="EMAIL" class="inline-block mb-1 font-medium">E-mail</label>
+                      <input
+                        placeholder="Email"
+                        required=""
+                        type="text"
+                        class="flex-grow w-full h-12 px-4 mb-2 transition duration-200 text-gray-900 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                        id="email"
+                        autocomplete="email" 
+                        name="EMAIL"
+                      />
+                    </div>
+                    <div class="mt-4 mb-2 sm:mb-4">
+                      <button
+                        type="submit"
+                        class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-gray-900 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                      >
+                        Subscribe
+                      </button>
+                    </div>
+                  </form>
                 </div>
+              </div>
             </div>
-     
-        </section>
-    </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://cdn.pointng.io/pointng.js?v=beta"></script> 
-<script src="https://cdn.consolechat.io/console-chat-min.js"></script>
-<script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
-<noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
-    <script src="/js/main.js">
-    
+          </div>
+        </div>
+      </div>
+      <video autoplay loop muted class="absolute z-10 w-auto min-w-full min-h-full max-w-none">
+        <source src="video/DJI_0003.mp4" type="video/mp4" />Your browser does not support the video tag.
+      </video>
+    </header>
 
-  </script> 
+    <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+      <div class="grid gap-12 row-gap-8 lg:grid-cols-2">
+        <div class="flex flex-col justify-center">
+          <div class="max-w-xl mb-6">
+            <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
+              Increase conversion and minimize <span class="inline-block text-deep-purple-accent-400">privacy risks</span>
+            </h2>
+            <p class="text-base text-gray-700 md:text-lg mt-8">
+              With pointNG's patent pending technology, you can improve your website's user experience by securely using geolocation to target messages, personalize content, redirect users to local sites, choose currencies and languages, prefill forms, and many more.
+            </p>
+          </div>
+        </div>
+        <div>
+          <img class="object-cover w-full h-56 sm:h-96" src="img/undraw_current_location_rypt.png" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+      <div class="p-8 rounded shadow-xl sm:p-16">
+        <div class="flex flex-col lg:flex-row">
+          <div class="mb-6 lg:mb-0 lg:w-1/2 lg:pr-5">
+            <h2 class="font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
+              Developer?
+              <span class="inline-block text-deep-purple-accent-400">Join the BETA</span>
+            </h2>
+          </div>
+          <div class="lg:w-1/2">
+            <p class="mb-4 text-base text-gray-700">
+             Visit our BETA-site, try pointNG in your web project, and send us feedback.
+            </p>
+            <a href="https://developer.pointng.io" aria-label="" class="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800">Access developer BETA site</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+      <div class="mx-auto mb-10 lg:max-w-xl sm:text-center">
+        <p class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
+          Ask the developer
+        </p>
+        <p class="text-base text-gray-700 md:text-lg">
+          Ideas, questions, feedback? Don't be a stranger.
+        </p>
+      </div>
+      <div class="grid gap-10 mx-auto sm:grid-cols-1 lg:grid-cols-1 lg:max-w-xs">
+        <div>
+          <div class="relative pb-56 mb-4 rounded shadow lg:pb-64">
+            <img class="absolute object-cover w-full h-full rounded" src="img/developer.png" alt="Person" />
+          </div>
+          <div class="flex flex-col sm:text-center">
+            <p class="text-lg font-bold">Kimmo Ihanus</p>
+            <p class="mb-5 text-xs text-gray-800">Developer of pointNG. Co-Founder at Grew.</p>
+            <div class="flex items-center space-x-3 sm:justify-center">
+              <a href="https://www.twitter.com/ihmissuti" class="text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/in/kimmo-ihanus-8175aa56/" class="text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              </a>
+              <a href="https://www.github.com/ihmissuti" class="text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+      <div class="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="sm:col-span-2">
+          <a href="/" aria-label="Go home" title="Company" class="inline-flex items-center">
+            <img src="https://cdn.pointng.io/pointng_widget.svg">
+            <span class="ml-2 text-xl font-bold tracking-wide text-gray-800">pointNG</span>
+          </a>
+          <div class="mt-6 lg:max-w-sm">
+            <p class="text-sm text-gray-800">
+             pointNG is created by <a href="https://grew.dev">Grew</a>
+            </p>
+          </div>
+        </div>
+        <div class="space-y-2 text-sm">
+          <p class="text-base font-bold tracking-wide text-gray-900">Contacts</p>
+          <div class="flex">
+            <p class="mr-1 text-gray-800">Email:</p>
+            <a href="mailto:hello@grew.dev" aria-label="Our email" title="Our email" class="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">hello[@]grew.dev</a>
+          </div>
+        </div>
+        <div>
+          <span class="text-base font-bold tracking-wide text-gray-900">Social</span>
+          <div class="flex items-center mt-1 space-x-3">
+            <a href="https://www.twitter.com/pointngio" class="text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/70396668" class="text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="https://github.com/Grew-dev" class="text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row">
+        <p class="text-sm text-gray-600">
+          © Copyright 2021 Grew. All rights reserved.
+        </p>
+        <ul class="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
+          <li>
+            <a href="https://github.com/Grew-dev/grew-privacy-policy" class="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">Privacy Policy</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+  <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
 
   </body>
 </html>

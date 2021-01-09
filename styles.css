@@ -1,0 +1,29 @@
+.video-title {
+    background: #000;
+  }
+  
+  @media only screen and (min-width : 768px) {
+    .video-wrapper {
+      height: 0;
+      padding-bottom: 56.25%;
+      position: relative;
+      width: 100%;
+    }
+  
+    .video-wrapper video {
+      height: 100%;
+      position: absolute;
+        top: 0;
+        left: 0;
+      width: 100%;
+    }
+  
+    .video-title {
+      background-color: rgba(0,0,0, .7);
+      position: absolute;
+        top: 50%;
+        left: 50%;
+      transform: translateX(-50%);
+      z-index: 99;
+    }
+  }
